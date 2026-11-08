@@ -1,0 +1,2294 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCERT Class 11 Physics eBook | Principle of Moments & Centre of Gravity — Hrishikesh M</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', ' system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            ncert: {
+              blue: '#0284c7',
+              indigo: '#4f46e5',
+              amber: '#d97706',
+              emerald: '#059669',
+              rose: '#e11d48'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --font-scale: 1;
+    }
+    body {
+      font-size: calc(1rem * var(--font-scale));
+    }
+    .math-var {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+    }
+    .math-vec {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+    }
+    .fraction {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 0.25rem;
+    }
+    .fraction > span:first-child {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .fraction > span:last-child {
+      padding-top: 1px;
+    }
+    /* Custom Range Slider */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 8px;
+      border-radius: 999px;
+      background: #cbd5e1;
+    }
+    .dark input[type="range"]::-webkit-slider-runnable-track {
+      background: #334155;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #0284c7;
+      border: 3px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      margin-top: -6px;
+      transition: transform 0.15s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #0284c7 0%, #4f46e5 100%);
+      color: white;
+      box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.45);
+      border-color: transparent;
+    }
+    .ncert-badge {
+      background: linear-gradient(90deg, #0ea5e9 0%, #6366f1 100%);
+    }
+    @keyframes pulseSubtle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .animate-pulse-subtle {
+      animation: pulseSubtle 2.4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+
+  <!-- TOP NAVIGATION & AUTHOR HEADER -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <!-- Brand & Chapter Info -->
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl ncert-badge flex items-center justify-center text-white shadow-md shrink-0">
+            <i data-lucide="compass" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300">
+                NCERT Class XI Physics • Ch. 6
+              </span>
+              <span class="text-xs font-medium text-slate-500 dark:text-slate-400">
+                Sections 6.8.1 &amp; 6.8.2
+              </span>
+            </div>
+            <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+              System of Particles &amp; Rotational Motion
+            </h1>
+          </div>
+        </div>
+
+        <!-- Creator Credit Pill & Classroom Controls -->
+        <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+          <div class="flex items-center gap-2.5 bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-rose-500/10 dark:from-amber-500/20 dark:to-rose-500/20 border border-amber-300/70 dark:border-amber-600/50 px-3.5 py-1.5 rounded-full">
+            <div class="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold text-xs shadow">
+              HM
+            </div>
+            <div class="text-left leading-tight">
+              <div class="text-[10px] uppercase tracking-wider font-semibold text-amber-700 dark:text-amber-300">Created &amp; Curated By</div>
+              <div class="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">Hrishikesh M <span class="font-medium text-amber-700 dark:text-amber-300">(PGT Physics)</span></div>
+            </div>
+          </div>
+
+          <!-- Smartboard Font Size Toggle -->
+          <button id="fontScaleBtn" onclick="cycleFontScale()" title="Classroom Smartboard Text Zoom" class="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold flex items-center gap-1.5 transition">
+            <i data-lucide="monitor" class="w-4 h-4 text-sky-600 dark:text-sky-400"></i>
+            <span id="fontScaleLabel">100%</span>
+          </button>
+
+          <!-- Dark/Light Mode -->
+          <button onclick="toggleTheme()" title="Toggle Light/Dark Mode" class="p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+            <i data-lucide="moon" id="themeIcon" class="w-4 h-4 text-slate-700 dark:text-amber-300"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 6-TAB NAVIGATION BAR -->
+      <nav class="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800/80 overflow-x-auto no-scrollbar">
+        <div class="flex items-center gap-1.5 min-w-max pb-1" role="tablist">
+          <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 transition-all">
+            <span class="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-xs">1</span>
+            <i data-lucide="scale" class="w-4 h-4"></i>
+            <span>Principle of Moments</span>
+          </button>
+
+          <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 transition-all">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs">2</span>
+            <i data-lucide="sigma" class="w-4 h-4"></i>
+            <span>Math &amp; Mechanical Advantage</span>
+          </button>
+
+          <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 transition-all">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs">3</span>
+            <i data-lucide="Crosshair" class="w-4 h-4"></i>
+            <span>Centre of Gravity &amp; Lab</span>
+          </button>
+
+          <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 transition-all">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs">4</span>
+            <i data-lucide="orbit" class="w-4 h-4"></i>
+            <span>CG Theory &amp; CG vs CM</span>
+          </button>
+
+          <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 transition-all">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs">5</span>
+            <i data-lucide="calculator" class="w-4 h-4"></i>
+            <span>Solved Numericals (6)</span>
+          </button>
+
+          <button onclick="switchTab(6)" id="tab-btn-6" class="tab-btn px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 flex items-center gap-2 transition-all">
+            <span class="w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-xs">6</span>
+            <i data-lucide="trophy" class="w-4 h-4"></i>
+            <span>Gamified Quiz Arena</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN EBOOK CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- =====================================================================
+         TAB 1: PRINCIPLE OF MOMENTS (CONCEPT, NCERT EXPLANATION & SIMULATION)
+         ===================================================================== -->
+    <section id="tab-1" class="tab-panel space-y-8">
+      <!-- Hero Banner -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-sky-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl border border-sky-700/40">
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-400/20 border border-sky-300/30 text-sky-200 text-xs font-semibold">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              NCERT Section 6.8.1 • Mechanical Equilibrium of a Lever
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight">
+              6.8.1 Principle of Moments
+            </h2>
+            <p class="text-sky-100/90 text-sm sm:text-base leading-relaxed max-w-3xl">
+              Why can a small child balance a heavier adult on a playground see-saw, or how does a simple crowbar lift a massive boulder? Let us explore the physics of an <strong>ideal lever</strong> and discover how forces and their lever arms govern rotational balance.
+            </p>
+          </div>
+          <div class="lg:col-span-4 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15">
+            <div class="text-xs uppercase tracking-wider text-sky-300 font-bold mb-1">Core Takeaway</div>
+            <p class="text-sm font-medium text-white leading-snug">
+              "For a lever in rotational equilibrium, the algebraic sum of moments of forces about the fulcrum is zero:"
+            </p>
+            <div class="mt-3 py-2 px-3 rounded-xl bg-slate-950/60 text-center font-mono text-base sm:text-lg font-bold text-amber-300 border border-amber-400/30">
+              Load Arm × Load = Effort Arm × Effort
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Concept Cards + NCERT Fig 6.23 Static Reference -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Left 7 cols: Textbook Concept Breakdown -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex items-center gap-2.5 text-sky-600 dark:text-sky-400 font-bold text-lg">
+              <i data-lucide="lightbulb" class="w-5 h-5"></i>
+              <h3>What is an Ideal Lever?</h3>
+            </div>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+              According to NCERT, an <strong>ideal lever</strong> is essentially a <strong>light (i.e., of negligible mass) rod</strong> pivoted at a point along its length. This pivot point is called the <span class="px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 font-bold">fulcrum (O)</span>.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+                <div class="flex items-center gap-2 font-bold text-rose-600 dark:text-rose-400 mb-1">
+                  <i data-lucide="arrow-down-circle" class="w-4 h-4"></i>
+                  <span>Load (<span class="math-var">F</span><sub>1</sub>) &amp; Load Arm (<span class="math-var">d</span><sub>1</sub>)</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                  In a lever, force <span class="math-var">F</span><sub>1</sub> is usually some weight to be lifted. It acts at point <strong>A</strong> at a perpendicular distance <span class="math-var">d</span><sub>1</sub> (the <em>load arm</em>) from the fulcrum <strong>O</strong>.
+                </p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700">
+                <div class="flex items-center gap-2 font-bold text-indigo-600 dark:text-indigo-400 mb-1">
+                  <i data-lucide="hand" class="w-4 h-4"></i>
+                  <span>Effort (<span class="math-var">F</span><sub>2</sub>) &amp; Effort Arm (<span class="math-var">d</span><sub>2</sub>)</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                  Force <span class="math-var">F</span><sub>2</sub> is the <em>effort</em> applied at point <strong>B</strong> to lift the load. Its distance <span class="math-var">d</span><sub>2</sub> from the fulcrum <strong>O</strong> is called the <em>effort arm</em>.
+                </p>
+              </div>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-start gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5"></i>
+              <div class="text-xs sm:text-sm text-emerald-950 dark:text-emerald-200">
+                <strong>Support Reaction (<span class="math-vec">R</span>) at Fulcrum:</strong> Since the lever is in mechanical equilibrium, the fulcrum exerts an upward reaction force <span class="math-vec">R</span> directed opposite to <span class="math-var">F</span><sub>1</sub> and <span class="math-var">F</span><sub>2</sub>. Because <span class="math-vec">R</span> acts right <em>at</em> the fulcrum itself (lever arm = 0), <strong><span class="math-vec">R</span> has zero moment about the fulcrum!</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-World Levers Around Us (NCERT Prompt) -->
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h4 class="font-bold text-base text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+              Real-World Examples of Levers (NCERT Activity)
+            </h4>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm">
+              <div class="p-3.5 rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/50">
+                <div class="font-bold text-amber-900 dark:text-amber-300">1. Playground See-Saw</div>
+                <p class="text-slate-600 dark:text-slate-400 mt-1">Pivoted at the central fulcrum. A lighter child sits farther (<span class="math-var">d</span><sub>2</sub> &gt; <span class="math-var">d</span><sub>1</sub>) to balance a heavier friend.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-sky-50/70 dark:bg-sky-950/30 border border-sky-200/70 dark:border-sky-800/50">
+                <div class="font-bold text-sky-900 dark:text-sky-300">2. Beam Balance</div>
+                <p class="text-slate-600 dark:text-slate-400 mt-1">Equal arms (<span class="math-var">d</span><sub>1</sub> = <span class="math-var">d</span><sub>2</sub>). When horizontal, unknown mass equals standard mass (<span class="math-var">F</span><sub>1</sub> = <span class="math-var">F</span><sub>2</sub>).</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-800/50">
+                <div class="font-bold text-indigo-900 dark:text-indigo-300">3. Crowbar / Bottle Opener</div>
+                <p class="text-slate-600 dark:text-slate-400 mt-1">Long effort arm (<span class="math-var">d</span><sub>2</sub> ≫ <span class="math-var">d</span><sub>1</sub>) gives large Mechanical Advantage to lift heavy loads.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 5 cols: Faithful High-Res SVG Reproduction of NCERT Fig. 6.23 -->
+        <div class="lg:col-span-5 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">NCERT Textbook Diagram</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Fig. 6.23</span>
+            </div>
+            <h3 class="font-bold text-base text-slate-900 dark:text-white mb-3">
+              Forces &amp; Moments on an Ideal Lever
+            </h3>
+          </div>
+
+          <!-- SVG for Fig 6.23 -->
+          <div class="bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-200/80 dark:border-slate-800 my-auto">
+            <svg viewBox="0 0 460 230" class="w-full h-auto">
+              <defs>
+                <marker id="arrow-up-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M 0 2 L 10 5 L 0 8 z" fill="#059669" />
+                </marker>
+                <marker id="arrow-down-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 2 L 10 5 L 0 8 z" fill="#e11d48" />
+                </marker>
+                <marker id="arrow-down-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 2 L 10 5 L 0 8 z" fill="#4f46e5" />
+                </marker>
+                <marker id="dim-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                  <path d="M 0 2 L 10 5 L 0 8 z" fill="#64748b" />
+                </marker>
+              </defs>
+
+              <!-- Dimension lines d1 and d2 -->
+              <line x1="70" y1="82" x2="180" y2="82" stroke="#64748b" stroke-width="1.5" marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)" />
+              <rect x="112" y="70" width="26" height="20" fill="currentColor" class="text-slate-50 dark:text-slate-950" />
+              <text x="125" y="85" text-anchor="middle" class="fill-slate-700 dark:fill-slate-300 font-serif italic font-bold text-sm">d₁</text>
+
+              <line x1="180" y1="82" x2="390" y2="82" stroke="#64748b" stroke-width="1.5" marker-start="url(#dim-arrow)" marker-end="url(#dim-arrow)" />
+              <rect x="272" y="70" width="26" height="20" fill="currentColor" class="text-slate-50 dark:text-slate-950" />
+              <text x="285" y="85" text-anchor="middle" class="fill-slate-700 dark:fill-slate-300 font-serif italic font-bold text-sm">d₂</text>
+
+              <!-- Upward Reaction R at O -->
+              <line x1="180" y1="105" x2="180" y2="32" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-up-green)" />
+              <text x="192" y="42" class="fill-emerald-600 dark:fill-emerald-400 font-bold text-sm">R</text>
+
+              <!-- Fulcrum Triangle / Cross at O -->
+              <polygon points="180,104 171,120 189,120" fill="#f59e0b" stroke="#b45309" stroke-width="1.5" />
+              <text x="193" y="99" class="fill-slate-800 dark:fill-slate-200 font-bold text-xs">O</text>
+
+              <!-- Lever Rod AB -->
+              <rect x="70" y="98" width="320" height="7" rx="2" fill="#64748b" />
+              <text x="53" y="105" class="fill-slate-800 dark:fill-slate-200 font-bold text-sm">A</text>
+              <text x="397" y="105" class="fill-slate-800 dark:fill-slate-200 font-bold text-sm">B</text>
+
+              <!-- Force F1 at A -->
+              <line x1="70" y1="105" x2="70" y2="165" stroke="#e11d48" stroke-width="2.5" marker-end="url(#arrow-down-red)" />
+              <text x="68" y="185" text-anchor="middle" class="fill-rose-600 dark:fill-rose-400 font-bold text-sm">F₁</text>
+              <!-- Anticlockwise curved arrow around F1 -->
+              <path d="M 42 152 A 28 28 0 0 0 74 196" fill="none" stroke="#e11d48" stroke-width="1.6" marker-end="url(#arrow-down-red)" />
+              <text x="65" y="214" text-anchor="middle" class="fill-rose-600 dark:fill-rose-400 text-[11px] font-semibold">+ve (Anticlockwise)</text>
+
+              <!-- Force F2 at B -->
+              <line x1="390" y1="105" x2="390" y2="165" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#arrow-down-blue)" />
+              <text x="390" y="185" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 font-bold text-sm">F₂</text>
+              <!-- Clockwise curved arrow around F2 -->
+              <path d="M 418 152 A 28 28 0 0 1 386 196" fill="none" stroke="#4f46e5" stroke-width="1.6" marker-end="url(#arrow-down-blue)" />
+              <text x="390" y="214" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 text-[11px] font-semibold">-ve (Clockwise)</text>
+            </svg>
+          </div>
+
+          <div class="mt-3 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <strong>Fig. 6.23 Explained:</strong> Parallel forces <strong>F₁</strong> (load) and <strong>F₂</strong> (effort) act perpendicular to the light lever at distances <em>d₁</em> and <em>d₂</em> from the fulcrum <strong>O</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE SIMULATION 1: PRINCIPLE OF MOMENTS VIRTUAL LAB -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-sky-500/30 dark:border-sky-500/40 shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-sky-600 to-indigo-600 px-6 py-4 text-white flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="p-2 rounded-xl bg-white/20">
+              <i data-lucide="sliders" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-[11px] uppercase tracking-wider font-bold text-sky-200">Interactive Physics Simulation • Lab 1</span>
+              <h3 class="text-lg font-extrabold">Virtual Lever &amp; Principle of Moments Simulator</h3>
+            </div>
+          </div>
+          <!-- Preset Scenarios -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-semibold text-sky-100">Quick Presets:</span>
+            <button onclick="setLeverPreset(60, 1.0, 20, 3.0, 90)" class="px-3 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-xs font-bold transition">
+              Crowbar (M.A. = 3)
+            </button>
+            <button onclick="setLeverPreset(40, 2.0, 40, 2.0, 90)" class="px-3 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-xs font-bold transition">
+              Beam Balance (M.A. = 1)
+            </button>
+            <button onclick="setLeverPreset(50, 1.5, 30, 2.5, 60)" class="px-3 py-1.5 rounded-lg bg-amber-400/30 hover:bg-amber-400/40 border border-amber-300/50 text-xs font-bold transition">
+              Angled Forces (60°)
+            </button>
+            <button onclick="autoBalanceEffort()" class="px-3 py-1.5 rounded-lg bg-emerald-400 text-slate-950 hover:bg-emerald-300 text-xs font-extrabold transition shadow">
+              ⚡ Auto-Balance Effort
+            </button>
+          </div>
+        </div>
+
+        <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Canvas / SVG Visualizer (7 Cols) -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="relative bg-slate-100 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 overflow-hidden">
+              <!-- Equilibrium Status Badge -->
+              <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+                <div id="leverStatusBadge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                  <span>ROTATIONAL EQUILIBRIUM (Balanced!)</span>
+                </div>
+                <div class="text-xs font-mono text-slate-600 dark:text-slate-400">
+                  Reaction at Fulcrum: <strong class="text-emerald-600 dark:text-emerald-400" id="simReactionReadout">R = 80.0 N</strong>
+                </div>
+              </div>
+
+              <!-- Interactive SVG Lever Stage -->
+              <svg id="leverSimSvg" viewBox="0 0 600 310" class="w-full h-auto select-none">
+                <defs>
+                  <marker id="sim-arr-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#e11d48" />
+                  </marker>
+                  <marker id="sim-arr-blue" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#4f46e5" />
+                  </marker>
+                  <marker id="sim-arr-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669" />
+                  </marker>
+                </defs>
+
+                <!-- Floor / Base -->
+                <line x1="40" y1="265" x2="560" y2="265" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,4" />
+
+                <!-- Fulcrum Pedestal fixed at center X=300, Y=175 -->
+                <polygon points="300,175 276,265 324,265" fill="url(#fulcrumGrad)" stroke="#b45309" stroke-width="2" />
+                <linearGradient id="fulcrumGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#f59e0b" />
+                  <stop offset="100%" stop-color="#d97706" />
+                </linearGradient>
+                <circle cx="300" cy="175" r="5" fill="#fff" stroke="#b45309" stroke-width="2" />
+                <text x="300" y="283" text-anchor="middle" class="fill-amber-600 dark:fill-amber-400 font-bold text-xs">Fulcrum O</text>
+
+                <!-- Reaction Vector R at Fulcrum -->
+                <line id="simRLine" x1="300" y1="175" x2="300" y2="95" stroke="#059669" stroke-width="3.5" marker-end="url(#sim-arr-green)" />
+                <text id="simRText" x="310" y="95" class="fill-emerald-600 dark:fill-emerald-400 font-mono font-bold text-xs">R = 80 N</text>
+
+                <!-- Rotating Group for Lever Beam + Forces -->
+                <g id="simBeamGroup" transform="rotate(0, 300, 175)">
+                  <!-- Beam (-240px to +240px corresponding to 4.0m each side, 60px per meter) -->
+                  <rect x="60" y="169" width="480" height="12" rx="4" fill="#475569" stroke="#1e293b" stroke-width="1.5" />
+                  <!-- Meter tick marks -->
+                  <g stroke="#cbd5e1" stroke-width="1.5">
+                    <line x1="120" y1="169" x2="120" y2="181" />
+                    <line x1="180" y1="169" x2="180" y2="181" />
+                    <line x1="240" y1="169" x2="240" y2="181" />
+                    <line x1="360" y1="169" x2="360" y2="181" />
+                    <line x1="420" y1="169" x2="420" y2="181" />
+                    <line x1="480" y1="169" x2="480" y2="181" />
+                  </g>
+
+                  <!-- Load Arm Bracket d1 -->
+                  <line id="simD1Line" x1="240" y1="154" x2="300" y2="154" stroke="#e11d48" stroke-width="2" />
+                  <text id="simD1Text" x="270" y="147" text-anchor="middle" class="fill-rose-600 dark:fill-rose-400 font-mono font-bold text-xs">d₁ = 1.0m</text>
+
+                  <!-- Effort Arm Bracket d2 -->
+                  <line id="simD2Line" x1="300" y1="154" x2="480" y2="154" stroke="#4f46e5" stroke-width="2" />
+                  <text id="simD2Text" x="390" y="147" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 font-mono font-bold text-xs">d₂ = 3.0m</text>
+
+                  <!-- Load Force F1 Vector at Point A -->
+                  <circle id="simPointA" cx="240" cy="175" r="5" fill="#e11d48" />
+                  <text id="simLabelA" x="240" y="164" text-anchor="middle" class="fill-rose-600 dark:fill-rose-400 font-bold text-xs">A</text>
+                  <line id="simF1Line" x1="240" y1="175" x2="240" y2="245" stroke="#e11d48" stroke-width="3.5" marker-end="url(#sim-arr-red)" />
+                  <text id="simF1Text" x="235" y="262" text-anchor="end" class="fill-rose-600 dark:fill-rose-400 font-mono font-bold text-xs">F₁ = 60 N</text>
+
+                  <!-- Effort Force F2 Vector at Point B -->
+                  <circle id="simPointB" cx="480" cy="175" r="5" fill="#4f46e5" />
+                  <text id="simLabelB" x="480" y="164" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 font-bold text-xs">B</text>
+                  <line id="simF2Line" x1="480" y1="175" x2="480" y2="215" stroke="#4f46e5" stroke-width="3.5" marker-end="url(#sim-arr-blue)" />
+                  <text id="simF2Text" x="485" y="235" text-anchor="start" class="fill-indigo-600 dark:fill-indigo-400 font-mono font-bold text-xs">F₂ = 20 N</text>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Live Torque & M.A. Telemetry Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="p-3 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800/60 text-center">
+                <div class="text-[11px] font-bold uppercase text-rose-600 dark:text-rose-400">Anticlockwise (+τ₁)</div>
+                <div id="simTau1Val" class="font-mono text-base sm:text-lg font-extrabold text-rose-700 dark:text-rose-300 mt-0.5">+60.0 N·m</div>
+                <div class="text-[11px] text-slate-500">d₁ × F₁ sinθ</div>
+              </div>
+              <div class="p-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-center">
+                <div class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Clockwise (-τ₂)</div>
+                <div id="simTau2Val" class="font-mono text-base sm:text-lg font-extrabold text-indigo-700 dark:text-indigo-300 mt-0.5">-60.0 N·m</div>
+                <div class="text-[11px] text-slate-500">-d₂ × F₂ sinθ</div>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+                <div class="text-[11px] font-bold uppercase text-slate-600 dark:text-slate-400">Net Torque (Στ)</div>
+                <div id="simNetTauVal" class="font-mono text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5">0.0 N·m</div>
+                <div class="text-[11px] text-slate-500">τ₁ - τ₂</div>
+              </div>
+              <div class="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-center">
+                <div class="text-[11px] font-bold uppercase text-amber-700 dark:text-amber-400">Mech. Advantage</div>
+                <div id="simMAVal" class="font-mono text-base sm:text-lg font-extrabold text-amber-800 dark:text-amber-300 mt-0.5">M.A. = 3.00</div>
+                <div class="text-[11px] text-slate-500">d₂ / d₁</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Panel (5 Cols) -->
+          <div class="lg:col-span-5 space-y-4 bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <h4 class="font-bold text-sm uppercase tracking-wider text-slate-500 dark:text-slate-400">
+              Adjust Lever Parameters
+            </h4>
+
+            <!-- Load F1 -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs sm:text-sm font-bold">
+                <span class="text-rose-600 dark:text-rose-400">Load Force (F₁) at A</span>
+                <span id="lblF1" class="font-mono">60 N</span>
+              </div>
+              <input id="sliderF1" type="range" min="10" max="100" step="5" value="60" oninput="updateLeverSim()" class="w-full" />
+            </div>
+
+            <!-- Load Arm d1 -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs sm:text-sm font-bold">
+                <span class="text-rose-600 dark:text-rose-400">Load Arm (d₁) from O</span>
+                <span id="lblD1" class="font-mono">1.0 m</span>
+              </div>
+              <input id="sliderD1" type="range" min="0.5" max="3.5" step="0.25" value="1.0" oninput="updateLeverSim()" class="w-full" />
+            </div>
+
+            <hr class="border-slate-200 dark:border-slate-700" />
+
+            <!-- Effort F2 -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs sm:text-sm font-bold">
+                <span class="text-indigo-600 dark:text-indigo-400">Effort Force (F₂) at B</span>
+                <span id="lblF2" class="font-mono">20 N</span>
+              </div>
+              <input id="sliderF2" type="range" min="10" max="100" step="5" value="20" oninput="updateLeverSim()" class="w-full" />
+            </div>
+
+            <!-- Effort Arm d2 -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs sm:text-sm font-bold">
+                <span class="text-indigo-600 dark:text-indigo-400">Effort Arm (d₂) from O</span>
+                <span id="lblD2" class="font-mono">3.0 m</span>
+              </div>
+              <input id="sliderD2" type="range" min="0.5" max="3.5" step="0.25" value="3.0" oninput="updateLeverSim()" class="w-full" />
+            </div>
+
+            <hr class="border-slate-200 dark:border-slate-700" />
+
+            <!-- Force Angle theta (NCERT Page 112 insight) -->
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs sm:text-sm font-bold">
+                <span class="text-amber-700 dark:text-amber-400">Parallel Force Angle (θ) with Lever</span>
+                <span id="lblTheta" class="font-mono">90° (Perpendicular)</span>
+              </div>
+              <input id="sliderTheta" type="range" min="30" max="90" step="5" value="90" oninput="updateLeverSim()" class="w-full" />
+              <p class="text-[11px] text-slate-500 dark:text-slate-400 pt-1">
+                <strong>NCERT Page 112 Insight:</strong> Even when parallel forces F₁ &amp; F₂ act at an angle θ ≠ 90° to the lever, both moments scale by sinθ, so <em>d₁F₁ = d₂F₂</em> still holds!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation to Next Tab -->
+      <div class="flex justify-end">
+        <button onclick="switchTab(2)" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg transition">
+          <span>Next: Mathematical Equations &amp; Mechanical Advantage</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 2: MATHEMATICAL EQUATIONS & CONNECTIONS (PRINCIPLE OF MOMENTS)
+         ===================================================================== -->
+    <section id="tab-2" class="tab-panel hidden space-y-8">
+      <!-- Header -->
+      <div class="rounded-3xl bg-gradient-to-r from-indigo-900 via-slate-900 to-sky-900 text-white p-6 sm:p-8 shadow-xl border border-indigo-700/40">
+        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-400/20 text-indigo-200 border border-indigo-300/30">
+          Mathematical Formulation • Equations (6.32a) &amp; (6.32b)
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold mt-3">
+          Equations of Equilibrium &amp; Mechanical Advantage
+        </h2>
+        <p class="text-indigo-100/90 text-sm sm:text-base mt-2 max-w-3xl">
+          A rigid body in mechanical equilibrium must satisfy <strong>both</strong> translational equilibrium (<span class="font-mono">ΣF = 0</span>) and rotational equilibrium (<span class="font-mono">Στ = 0</span>). Let us derive the Principle of Moments step by step as presented in NCERT.
+        </p>
+      </div>
+
+      <!-- Two-Column Derivation Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Condition 1: Translational Equilibrium -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300">Step 1 • Force Balance</span>
+            <span class="font-mono text-xs text-slate-400">NCERT Eq. (i)</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+            1. Condition for Translational Equilibrium
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Let <strong>R</strong> be the upward reaction of the support at the fulcrum <strong>O</strong>. Since <strong>R</strong> is directed opposite to the downward forces <span class="math-var">F</span><sub>1</sub> and <span class="math-var">F</span><sub>2</sub>, the net vertical force on the lever must vanish:
+          </p>
+          <div class="p-4 rounded-xl bg-slate-900 text-white font-mono text-center text-lg sm:text-xl font-bold border border-emerald-500/40 shadow-inner">
+            R − F₁ − F₂ = 0 &nbsp;&nbsp;⟹&nbsp;&nbsp; R = F₁ + F₂ &nbsp;&nbsp;<span class="text-xs text-emerald-400">(Eq. i)</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            <strong>Physical Meaning:</strong> The pivot or fulcrum must bear the entire combined downward load (<span class="math-var">F</span><sub>1</sub> + <span class="math-var">F</span><sub>2</sub>) when the ideal massless rod is horizontal.
+          </p>
+        </div>
+
+        <!-- Condition 2: Rotational Equilibrium -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300">Step 2 • Torque Balance</span>
+            <span class="font-mono text-xs text-slate-400">NCERT Eq. (ii) &amp; (6.32a)</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+            2. Condition for Rotational Equilibrium
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Taking moments about the fulcrum <strong>O</strong>, the sum of moments must be zero. Normally, <strong>anticlockwise moments are taken as positive (+)</strong> and <strong>clockwise moments as negative (−)</strong>. Note that <strong>R</strong> acts at the fulcrum itself and has zero moment about <strong>O</strong>:
+          </p>
+          <div class="p-4 rounded-xl bg-slate-900 text-white font-mono text-center space-y-2 border border-sky-500/40 shadow-inner">
+            <div class="text-base sm:text-lg font-bold text-sky-300">
+              d₁F₁ − d₂F₂ = 0 &nbsp;&nbsp;<span class="text-xs text-slate-400">(Eq. ii)</span>
+            </div>
+            <div class="text-lg sm:text-xl font-extrabold text-amber-300 pt-1 border-t border-slate-800">
+              d₁F₁ = d₂F₂ &nbsp;&nbsp;<span class="text-xs text-amber-200">(Eq. 6.32a)</span>
+            </div>
+            <div class="text-xs sm:text-sm text-emerald-300 font-sans font-bold">
+              load arm × load = effort arm × effort
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mechanical Advantage Section (Eq 6.32b) + Interactive M.A. Calculator -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        <div class="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">
+              NCERT Equation (6.32b)
+            </span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+              Mechanical Advantage (M.A.)
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              From the principle of moments (<span class="math-var">d</span><sub>1</sub><span class="math-var">F</span><sub>1</sub> = <span class="math-var">d</span><sub>2</sub><span class="math-var">F</span><sub>2</sub>), the ratio of the load lifted (<span class="math-var">F</span><sub>1</sub>) to the effort applied (<span class="math-var">F</span><sub>2</sub>) is called the <strong>Mechanical Advantage (M.A.)</strong>:
+            </p>
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-slate-900 to-indigo-950 text-white text-center font-mono text-xl sm:text-2xl font-bold border border-indigo-500/30">
+              M.A. = 
+              <span class="fraction">
+                <span class="text-rose-400">F₁</span>
+                <span class="text-indigo-400">F₂</span>
+              </span>
+              =
+              <span class="fraction">
+                <span class="text-indigo-400">d₂</span>
+                <span class="text-rose-400">d₁</span>
+              </span>
+              <span class="text-xs text-slate-400 ml-3 font-normal">(6.32b)</span>
+            </div>
+          </div>
+
+          <div class="space-y-2.5 pt-2">
+            <div class="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 text-xs sm:text-sm">
+              <strong class="text-emerald-800 dark:text-emerald-300">Case 1: Effort Arm &gt; Load Arm (<span class="math-var">d</span><sub>2</sub> &gt; <span class="math-var">d</span><sub>1</sub> ⟹ M.A. &gt; 1)</strong>
+              <p class="text-slate-600 dark:text-slate-300 mt-0.5">
+                Force multiplier! A <strong>small effort (<span class="math-var">F</span><sub>2</sub>) can be used to lift a large load (<span class="math-var">F</span><sub>1</sub>)</strong>. Example: Crowbar lifting a stone.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-sky-50 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-800/60 text-xs sm:text-sm">
+              <strong class="text-sky-800 dark:text-sky-300">Case 2: Effort Arm = Load Arm (<span class="math-var">d</span><sub>2</sub> = <span class="math-var">d</span><sub>1</sub> ⟹ M.A. = 1)</strong>
+              <p class="text-slate-600 dark:text-slate-300 mt-0.5">
+                Equal forces (<span class="math-var">F</span><sub>1</sub> = <span class="math-var">F</span><sub>2</sub>). Example: A shopkeeper's beam balance.
+              </p>
+            </div>
+            <div class="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/60 text-xs sm:text-sm">
+              <strong class="text-rose-800 dark:text-rose-300">Case 3: Effort Arm &lt; Load Arm (<span class="math-var">d</span><sub>2</sub> &lt; <span class="math-var">d</span><sub>1</sub> ⟹ M.A. &lt; 1)</strong>
+              <p class="text-slate-600 dark:text-slate-300 mt-0.5">
+                Speed/distance multiplier! Requires larger effort than load, such as a human forearm lifting a ball in the palm.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Proof: Why Non-Perpendicular Parallel Forces Obey Principle of Moments -->
+        <div class="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">
+              NCERT Page 112 • Conceptual Extension
+            </span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">
+              What if Parallel Forces Act at an Angle θ ≠ 90°?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+              NCERT asks: <em>"You may easily show that the principle of moment holds even when the parallel forces F₁ and F₂ are not perpendicular, but act at some angle, to the lever."</em> Drag the angle slider below to see the geometric proof!
+            </p>
+          </div>
+
+          <div class="bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+            <svg id="angleProofSvg" viewBox="0 0 460 190" class="w-full h-auto">
+              <!-- Lever AB -->
+              <line x1="70" y1="75" x2="390" y2="75" stroke="#475569" stroke-width="6" stroke-linecap="round" />
+              <polygon points="210,78 200,98 220,98" fill="#f59e0b" />
+              <text x="210" y="65" text-anchor="middle" class="fill-amber-600 font-bold text-xs">O (Fulcrum)</text>
+              <text x="65" y="65" class="fill-rose-600 font-bold text-xs">A</text>
+              <text x="392" y="65" class="fill-indigo-600 font-bold text-xs">B</text>
+
+              <!-- Angled Force Lines & Perpendicular Moment Arms -->
+              <g id="angleProofVectors"></g>
+            </svg>
+
+            <div class="mt-3 flex items-center gap-4">
+              <label class="text-xs font-bold text-slate-700 dark:text-slate-300 shrink-0">Inclination Angle θ:</label>
+              <input id="proofAngleSlider" type="range" min="25" max="90" step="5" value="55" oninput="updateAngleProof()" class="w-full" />
+              <span id="proofAngleLabel" class="font-mono text-xs font-bold text-indigo-600 dark:text-indigo-400 w-12 text-right">55°</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 font-mono text-xs sm:text-sm space-y-1">
+            <div>1. Moment of F₁ about O = (d₁ sinθ) F₁ &nbsp;<span class="text-rose-600">(Anticlockwise)</span></div>
+            <div>2. Moment of F₂ about O = (d₂ sinθ) F₂ &nbsp;<span class="text-indigo-600">(Clockwise)</span></div>
+            <div class="pt-1 font-bold text-slate-900 dark:text-white border-t border-indigo-200 dark:border-indigo-800">
+              For Rotational Equilibrium: d₁ F₁ <span class="line-through text-rose-500">sinθ</span> = d₂ F₂ <span class="line-through text-rose-500">sinθ</span> ⟹ <span class="text-emerald-600 dark:text-emerald-400">d₁F₁ = d₂F₂</span> (Proved!)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between">
+        <button onclick="switchTab(1)" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-sm flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back: Principle of Moments</span>
+        </button>
+        <button onclick="switchTab(3)" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg transition">
+          <span>Next: Centre of Gravity &amp; Interactive Labs</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 3: CENTRE OF GRAVITY (CONCEPT, DIAGRAMS & INTERACTIVE SIMULATIONS)
+         ===================================================================== -->
+    <section id="tab-3" class="tab-panel hidden space-y-8">
+      <!-- Hero Banner -->
+      <div class="rounded-3xl bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl border border-emerald-700/40">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8 space-y-2.5">
+            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-400/20 text-emerald-200 border border-emerald-300/30">
+              NCERT Section 6.8.2 • Fig. 6.24 &amp; Fig. 6.25
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold">
+              6.8.2 Centre of Gravity (CG)
+            </h2>
+            <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed">
+              Have you ever balanced your physics notebook on the tip of your finger? There is one unique point where the entire extended body remains perfectly horizontal without tilting. Let us explore this point—the <strong>Centre of Gravity (G)</strong>—through two hands-on experiments from NCERT!
+            </p>
+          </div>
+          <div class="lg:col-span-4 bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/15">
+            <div class="text-xs uppercase font-bold text-emerald-300">Definition of CG</div>
+            <p class="text-sm font-medium mt-1">
+              "The Centre of Gravity (CG) of a body is that point where the <strong>total gravitational torque</strong> on the body is zero."
+            </p>
+            <div class="mt-2 py-1.5 px-3 rounded-lg bg-slate-950/60 font-mono text-center text-amber-300 font-bold text-sm">
+              τ_g = Σ τ_i = Σ r_i × m_i g = 0
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULATOR 2A: FIG 6.24 BALANCING CARDBOARD ON A PENCIL TIP -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden">
+        <div class="bg-slate-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-bold">NCERT Fig. 6.24</span>
+            <h3 class="text-base sm:text-lg font-bold">Experiment 1: Balancing an Irregular Cardboard on a Pencil Tip</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="snapPencilToCG()" class="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-xs transition">
+              🎯 Place Pencil Exactly at G
+            </button>
+          </div>
+        </div>
+
+        <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Left 5 cols: NCERT Explanation of Fig 6.24 -->
+          <div class="lg:col-span-5 space-y-4">
+            <p class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              Take an irregular-shaped cardboard having mass <span class="math-var">M</span> and a narrow-tipped object like a pencil. By <strong>trial and error</strong>, you can locate a unique point <strong>G</strong> where the cardboard remains balanced horizontally.
+            </p>
+            <div class="space-y-2.5 text-xs sm:text-sm">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+                <strong class="text-emerald-600 dark:text-emerald-400">1. Translational Equilibrium:</strong>
+                <p class="mt-0.5 text-slate-600 dark:text-slate-300">
+                  The tip of the pencil provides a vertically upward reaction force <strong>R</strong> equal and opposite to the total weight <strong>Mg</strong> (<span class="font-mono">R − Mg = 0</span>).
+                </p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+                <strong class="text-sky-600 dark:text-sky-400">2. Rotational Equilibrium:</strong>
+                <p class="mt-0.5 text-slate-600 dark:text-slate-300">
+                  Gravity acts on every individual particle (<span class="math-var">m</span><sub>1</sub><strong>g</strong>, <span class="math-var">m</span><sub>2</sub><strong>g</strong>, …). Point <strong>G</strong> is so located that the total torque on the cardboard due to all these forces <span class="math-var">m</span><sub>i</sub><strong>g</strong> is zero! If the pencil tip is moved away from <strong>G</strong>, an unbalanced torque tilts and topples the cardboard.
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Slider for Pencil Tip Position -->
+            <div class="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 space-y-2">
+              <div class="flex justify-between text-xs font-bold">
+                <span class="text-emerald-900 dark:text-emerald-300">Move Pencil Tip Position (Trial &amp; Error):</span>
+                <span id="pencilOffsetLabel" class="font-mono text-emerald-700 dark:text-emerald-300">At G (Δx = 0.0 cm)</span>
+              </div>
+              <input id="pencilSlider" type="range" min="-80" max="80" step="2" value="0" oninput="updatePencilSim()" class="w-full" />
+              <div class="flex items-center justify-between pt-1">
+                <label class="inline-flex items-center gap-2 text-xs font-medium cursor-pointer">
+                  <input id="showParticlesChk" type="checkbox" checked onchange="updatePencilSim()" class="rounded text-emerald-600" />
+                  <span>Show individual particle weights (m₁g, m₂g, ...)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right 7 cols: Interactive Fig 6.24 SVG Stage -->
+          <div class="lg:col-span-7 bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-2">
+              <span id="pencilEqBadge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300">
+                ✓ Balanced at Centre of Gravity G (Στ = 0)
+              </span>
+              <span class="text-xs font-mono text-slate-500">Fig. 6.24 Interactive</span>
+            </div>
+
+            <svg id="pencilSimSvg" viewBox="0 0 520 290" class="w-full h-auto">
+              <defs>
+                <marker id="arr-up-R" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669" />
+                </marker>
+                <marker id="arr-dn-Mg" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#e11d48" />
+                </marker>
+                <marker id="arr-dn-mi" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#6366f1" />
+                </marker>
+              </defs>
+
+              <!-- Tilting Cardboard Group -->
+              <g id="cardboardTiltGroup" transform="translate(260, 145) rotate(0)">
+                <!-- Irregular Cardboard Shape centered around (0,0) as G -->
+                <path d="M -145,-10 C -160,-42 -95,-58 -35,-48 C 30,-60 115,-45 140,-15 C 168,18 115,45 45,38 C -15,48 -85,42 -125,22 C -150,12 -135,5 -145,-10 Z"
+                      fill="#94a3b8" fill-opacity="0.45" stroke="#334155" stroke-width="2.5" />
+
+                <!-- Individual Particle Gravity Vectors m1g, m2g, m3g -->
+                <g id="particleVectorsGroup">
+                  <!-- m1g -->
+                  <circle cx="-85" cy="2" r="3.5" fill="#4f46e5" />
+                  <line x1="-85" y1="2" x2="-85" y2="38" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-dn-mi)" />
+                  <text x="-85" y="52" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 font-serif italic font-bold text-xs">m₁g</text>
+
+                  <!-- m2g -->
+                  <circle cx="75" cy="-8" r="3.5" fill="#4f46e5" />
+                  <line x1="75" y1="-8" x2="75" y2="28" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-dn-mi)" />
+                  <text x="75" y="42" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 font-serif italic font-bold text-xs">m₂g</text>
+
+                  <!-- m3g -->
+                  <circle cx="-35" cy="-25" r="3.5" fill="#4f46e5" />
+                  <line x1="-35" y1="-25" x2="-35" y2="8" stroke="#4f46e5" stroke-width="2" marker-end="url(#arr-dn-mi)" />
+                  <text x="-35" y="21" text-anchor="middle" class="fill-indigo-600 dark:fill-indigo-400 font-serif italic font-bold text-xs">m₃g</text>
+                </g>
+
+                <!-- Centre of Gravity Point G at (0,0) -->
+                <circle cx="0" cy="0" r="5.5" fill="#e11d48" stroke="#fff" stroke-width="1.5" />
+                <text x="-14" y="-6" class="fill-rose-600 dark:fill-rose-400 font-extrabold text-sm">G</text>
+
+                <!-- Total Weight Mg downward from G -->
+                <line x1="0" y1="0" x2="0" y2="88" stroke="#e11d48" stroke-width="3" marker-end="url(#arr-dn-Mg)" />
+                <text x="12" y="86" class="fill-rose-600 dark:fill-rose-400 font-bold text-sm">Mg</text>
+              </g>
+
+              <!-- Pencil Tip Support Group (Moves horizontally with slider) -->
+              <g id="pencilSupportGroup" transform="translate(260, 145)">
+                <!-- Upward Reaction R from Pencil Tip -->
+                <line x1="0" y1="0" x2="0" y2="-95" stroke="#059669" stroke-width="3" marker-end="url(#arr-up-R)" />
+                <text x="10" y="-85" class="fill-emerald-600 dark:fill-emerald-400 font-extrabold text-sm">R</text>
+
+                <!-- Pencil Body -->
+                <polygon points="0,3 -14,48 14,48" fill="#fde68a" stroke="#475569" stroke-width="2" />
+                <polygon points="0,3 -4,16 4,16" fill="#1e293b" />
+                <rect x="-14" y="48" width="28" height="85" fill="#f59e0b" stroke="#475569" stroke-width="2" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULATOR 2B: FIG 6.25 PLUMB-LINE SUSPENSION METHOD FOR IRREGULAR LAMINA -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden">
+        <div class="bg-gradient-to-r from-teal-700 to-emerald-700 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span class="px-2.5 py-1 rounded-lg bg-white/20 font-mono text-xs font-bold">NCERT Fig. 6.25</span>
+            <h3 class="text-base sm:text-lg font-bold">Experiment 2: Determining CG of an Irregular Body by Suspension (Plumb-Line Method)</h3>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="suspendCardboard('A')" id="btnSuspA" class="px-3.5 py-1.5 rounded-lg bg-white text-teal-900 font-extrabold text-xs shadow transition">
+              1. Suspend from A (Line AA₁)
+            </button>
+            <button onclick="suspendCardboard('B')" id="btnSuspB" class="px-3.5 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white font-bold text-xs transition">
+              2. Suspend from B (Line BB₁)
+            </button>
+            <button onclick="suspendCardboard('C')" id="btnSuspC" class="px-3.5 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white font-bold text-xs transition">
+              3. Suspend from C (Line CC₁)
+            </button>
+            <button onclick="suspendCardboard('ALL')" class="px-3.5 py-1.5 rounded-lg bg-amber-400 text-slate-950 font-extrabold text-xs transition">
+              ✨ Show All Intersecting at G
+            </button>
+          </div>
+        </div>
+
+        <div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <!-- Left 6 cols: Interactive Plumb-Line SVG matching Fig. 6.25 -->
+          <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 border border-slate-200 dark:border-slate-800">
+            <svg id="plumbSimSvg" viewBox="0 0 440 340" class="w-full h-auto">
+              <!-- Ceiling Support S -->
+              <line x1="150" y1="32" x2="290" y2="32" stroke="#334155" stroke-width="3" />
+              <g stroke="#64748b" stroke-width="1.5">
+                <line x1="160" y1="32" x2="170" y2="22" /><line x1="175" y1="32" x2="185" y2="22" />
+                <line x1="190" y1="32" x2="200" y2="22" /><line x1="205" y1="32" x2="215" y2="22" />
+                <line x1="220" y1="32" x2="230" y2="22" /><line x1="235" y1="32" x2="245" y2="22" />
+                <line x1="250" y1="32" x2="260" y2="22" /><line x1="265" y1="32" x2="275" y2="22" />
+              </g>
+              <circle cx="220" cy="32" r="4.5" fill="#0f172a" />
+              <text x="230" y="48" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">S</text>
+
+              <!-- Vertical Suspension String from S (220,32) to Active Hole (220, 95) -->
+              <line x1="220" y1="32" x2="220" y2="95" stroke="#0f172a" class="dark:stroke-slate-200" stroke-width="2" />
+
+              <!-- Rotating Lamina Group pivoted around active hole at (220, 95) -->
+              <!-- In lamina local coordinates, CG G is at (0,0).
+                   Point A is at (0, -95)
+                   Point B is at (82, -48)
+                   Point C is at (-88, -38) -->
+              <g id="plumbLaminaGroup" transform="translate(220, 190) rotate(0)">
+                <!-- Irregular Lamina Outline (matching Fig. 6.25 silhouette) -->
+                <path d="M -8,-115 C 32,-112 45,-75 78,-68 C 112,-60 110,-20 118,12 C 125,45 92,72 62,88 C 35,102 20,120 -5,115 C -32,110 -58,108 -78,88 C -108,58 -115,20 -95,-12 C -112,-48 -95,-78 -62,-88 C -35,-96 -25,-116 -8,-115 Z"
+                      fill="#e2e8f0" class="dark:fill-slate-800" stroke="#1e293b" stroke-width="2.2" />
+
+                <!-- Dashed Line AA1 -->
+                <line id="lineAA1" x1="0" y1="-125" x2="0" y2="135" stroke="#0284c7" stroke-width="2" stroke-dasharray="6,5" />
+                <!-- Dashed Line BB1 -->
+                <line id="lineBB1" x1="115" y1="-67" x2="-115" y2="67" stroke="#d97706" stroke-width="2" stroke-dasharray="6,5" opacity="0.25" />
+                <!-- Dashed Line CC1 -->
+                <line id="lineCC1" x1="-118" y1="-51" x2="118" y2="51" stroke="#e11d48" stroke-width="2" stroke-dasharray="6,5" opacity="0.25" />
+
+                <!-- Holes A, A1, B, B1, C, C1 -->
+                <circle cx="0" cy="-95" r="5" fill="#0284c7" />
+                <text x="10" y="-90" class="fill-sky-700 dark:fill-sky-300 font-bold text-xs">A</text>
+                <circle cx="0" cy="95" r="4" fill="#0f172a" />
+                <text x="10" y="98" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">A₁</text>
+
+                <circle cx="82" cy="-48" r="5" fill="#d97706" />
+                <text x="65" y="-53" class="fill-amber-700 dark:fill-amber-300 font-bold text-xs">B</text>
+                <circle cx="-82" cy="48" r="4" fill="#0f172a" />
+                <text x="-75" y="65" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">B₁</text>
+
+                <circle cx="-88" cy="-38" r="5" fill="#e11d48" />
+                <text x="-92" y="-48" class="fill-rose-700 dark:fill-rose-300 font-bold text-xs">C</text>
+                <circle cx="88" cy="38" r="4" fill="#0f172a" />
+                <text x="82" y="28" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">C₁</text>
+
+                <!-- Intersection Point G -->
+                <circle cx="0" cy="0" r="6" fill="#059669" stroke="#fff" stroke-width="2" />
+                <text x="10" y="15" class="fill-emerald-700 dark:fill-emerald-300 font-extrabold text-sm">G</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Right 6 cols: Step-by-Step Procedure & NCERT Question Answered -->
+          <div class="lg:col-span-6 space-y-4">
+            <div id="plumbStepBox" class="p-4 rounded-2xl bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/60">
+              <div class="text-xs font-bold uppercase text-teal-700 dark:text-teal-300">Currently Active View</div>
+              <div id="plumbStepTitle" class="text-base font-bold text-slate-900 dark:text-white mt-0.5">
+                Step 1: Suspended from Point A → Vertical Line AA₁ Marked
+              </div>
+              <p id="plumbStepDesc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+                When suspended freely from point A, the cardboard comes to rest such that the vertical line through A passes directly through the Centre of Gravity G. We mark this vertical line as AA₁.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 space-y-2">
+              <div class="flex items-center gap-2 font-bold text-amber-900 dark:text-amber-300 text-sm">
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
+                <span>NCERT Think &amp; Answer (Page 113): "Explain why the method works."</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                <strong>Answer:</strong> When the body is suspended freely from a point (say <strong>A</strong>), two forces act on it: the upward tension <strong>T</strong> at <strong>A</strong> and the resultant gravitational force <strong>Mg</strong> acting vertically downward at the Centre of Gravity <strong>G</strong>. For rotational equilibrium (<span class="font-mono">Στ = 0</span>), the line of action of <strong>Mg</strong> must pass through the point of suspension <strong>A</strong> (otherwise <strong>Mg</strong> would create a restoring torque <span class="font-mono">τ = r_⊥ Mg</span> and rotate the lamina). Hence, <strong>G must lie on the vertical line AA₁</strong>. Repeating with <strong>B</strong> and <strong>C</strong>, the unique intersection of <strong>AA₁, BB₁, and CC₁</strong> gives the exact position of <strong>G</strong>!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between">
+        <button onclick="switchTab(2)" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-sm flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back: Math &amp; Mechanical Advantage</span>
+        </button>
+        <button onclick="switchTab(4)" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg transition">
+          <span>Next: Deep Dive — CG Theory &amp; CG vs CM</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 4: OTHER EXPLANATIONS RELATED TO CENTRE OF GRAVITY (EQ 6.33, CG vs CM)
+         ===================================================================== -->
+    <section id="tab-4" class="tab-panel hidden space-y-8">
+      <!-- Banner -->
+      <div class="rounded-3xl bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl border border-purple-700/40">
+        <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-400/20 text-purple-200 border border-purple-300/30">
+          NCERT Section 6.8.2 • Equation (6.33) &amp; Conceptual Distinctions
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold mt-3">
+          Mathematical Theory of CG &amp; Centre of Gravity vs. Centre of Mass
+        </h2>
+        <p class="text-purple-100/90 text-sm sm:text-base mt-2 max-w-3xl">
+          Are <strong>Centre of Gravity (CG)</strong> and <strong>Centre of Mass (CM)</strong> the exact same thing? NCERT explains why they are fundamentally different concepts, and under what condition they coincide!
+        </p>
+      </div>
+
+      <!-- Mathematical Derivation of Eq 6.33 & Coincidence with CM -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Vector Derivation</span>
+            <span class="font-mono text-xs text-slate-400">NCERT Eq. (6.33)</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+            Gravitational Torque about the CG
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Let <span class="math-vec">r</span><sub><span class="math-var">i</span></sub> be the position vector of the <em>i</em>-th particle of an extended body with respect to its Centre of Gravity (CG). The torque about the CG due to the force of gravity on the particle is <span class="font-mono"><strong>τ</strong><sub>i</sub> = <strong>r</strong><sub>i</sub> × m<sub>i</sub><strong>g</strong></span>.
+          </p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            By definition, the total gravitational torque about the CG is zero:
+          </p>
+          <div class="p-4 rounded-xl bg-slate-900 text-white font-mono text-center text-base sm:text-lg font-bold border border-purple-500/40">
+            <strong>τ</strong><sub>g</sub> = Σ <strong>τ</strong><sub>i</sub> = Σ <strong>r</strong><sub>i</sub> × m<sub>i</sub><strong>g</strong> = <strong>0</strong> &nbsp;&nbsp;<span class="text-xs text-purple-300">(6.33)</span>
+          </div>
+          <div class="p-4 rounded-xl bg-purple-50/70 dark:bg-purple-950/30 border border-purple-200 dark:border-purple-800/60 space-y-2 text-xs sm:text-sm">
+            <strong class="text-purple-900 dark:text-purple-300">When does CG coincide with CM?</strong>
+            <p class="text-slate-700 dark:text-slate-300">
+              If the body is sufficiently small, the acceleration due to gravity <strong>g</strong> is the <strong>same for all particles</strong>. Hence, <strong>g</strong> comes out of the summation in Eq. (6.33):
+            </p>
+            <div class="font-mono font-bold text-center py-2 bg-white dark:bg-slate-900 rounded-lg border border-purple-200 dark:border-purple-800">
+              (Σ m<sub>i</sub><strong>r</strong><sub>i</sub>) × <strong>g</strong> = <strong>0</strong> &nbsp;⟹&nbsp; Σ m<sub>i</sub><strong>r</strong><sub>i</sub> = <strong>0</strong> &nbsp;(since <strong>g</strong> ≠ <strong>0</strong>)
+            </div>
+            <p class="text-slate-700 dark:text-slate-300">
+              Remember that position vectors <strong>r</strong><sub>i</sub> are taken with respect to the CG. By Sec. 6.2 Eq. (6.4a), if <span class="font-mono">Σ m<sub>i</sub><strong>r</strong><sub>i</sub> = <strong>0</strong></span>, the origin must be the <strong>Centre of Mass (CM)</strong> of the body! Thus, <strong>the CG coincides with the CM in uniform gravity or gravity-free space.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Right 6 cols: Interactive Uniform vs Non-Uniform Gravity Visualizer -->
+        <div class="lg:col-span-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div>
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">
+              Interactive Concept Explorer
+            </span>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-2">
+              Small Body vs. Very Extended Body (e.g., Mt. Everest / Mega-Tower)
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+              What happens if a symmetric body is so tall/extended that <strong>g</strong> decreases noticeably from its bottom to its top? Slide the body height below to see how CG separates from CM!
+            </p>
+          </div>
+
+          <!-- SVG Visualizer for CM vs CG -->
+          <div class="bg-slate-50 dark:bg-slate-950 rounded-xl p-4 border border-slate-200 dark:border-slate-800">
+            <svg viewBox="0 0 460 210" class="w-full h-auto">
+              <!-- Earth Surface -->
+              <path d="M 20 190 Q 230 175 440 190" fill="none" stroke="#059669" stroke-width="3" />
+              <text x="380" y="205" class="fill-emerald-600 font-bold text-xs">Earth's Surface</text>
+
+              <!-- Extended Symmetric Tower / Mountain -->
+              <rect x="175" y="25" width="90" height="158" rx="6" fill="#64748b" fill-opacity="0.25" stroke="#475569" stroke-width="2" />
+              <line x1="175" y1="104" x2="265" y2="104" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4,4" />
+
+              <!-- CM Fixed at Geometric Center (Y = 104) -->
+              <circle cx="220" cy="104" r="6" fill="#0284c7" />
+              <text x="275" y="108" class="fill-sky-600 dark:fill-sky-400 font-bold text-xs">CM (Fixed at Geometric Centre)</text>
+
+              <!-- CG Shifts Downward when g varies -->
+              <circle id="cgShiftDot" cx="220" cy="104" r="6" fill="#e11d48" stroke="#fff" stroke-width="1.5" />
+              <text id="cgShiftLabel" x="165" y="108" text-anchor="end" class="fill-rose-600 dark:fill-rose-400 font-bold text-xs">CG (Coincides)</text>
+
+              <!-- Gravity field indicators -->
+              <text id="gTopText" x="40" y="55" class="fill-slate-500 font-mono text-xs">g_top = 9.80 m/s²</text>
+              <text id="gBotText" x="40" y="165" class="fill-slate-700 dark:fill-slate-300 font-mono font-bold text-xs">g_bottom = 9.80 m/s²</text>
+            </svg>
+
+            <div class="mt-3 space-y-1">
+              <div class="flex justify-between text-xs font-bold">
+                <span>Body Spatial Extent (Variation in g from bottom to top):</span>
+                <span id="extentModeLabel" class="text-emerald-600 font-mono">Small Body (Uniform g)</span>
+              </div>
+              <input id="extentSlider" type="range" min="0" max="100" step="5" value="0" oninput="updateCGvsCMSim()" class="w-full" />
+            </div>
+          </div>
+
+          <!-- Comparison Table -->
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+              <thead>
+                <tr class="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">
+                  <th class="p-2.5 rounded-tl-lg">Feature</th>
+                  <th class="p-2.5 text-sky-700 dark:text-sky-300">Centre of Mass (CM)</th>
+                  <th class="p-2.5 rounded-tr-lg text-rose-700 dark:text-rose-300">Centre of Gravity (CG)</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                <tr>
+                  <td class="p-2.5 font-bold">Physical Basis</td>
+                  <td class="p-2.5">Depends <strong>only on mass distribution</strong> (<span class="font-mono">Σm<sub>i</sub>r<sub>i</sub> = 0</span>).</td>
+                  <td class="p-2.5">Point where <strong>net gravitational torque is zero</strong> (<span class="font-mono">Σr<sub>i</sub>×m<sub>i</sub>g = 0</span>).</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-bold">Role of Gravity</td>
+                  <td class="p-2.5">Has nothing to do with gravity.</td>
+                  <td class="p-2.5">Depends on the gravitational field <strong>g</strong> across the body.</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-bold">Regular Homogeneous Bodies</td>
+                  <td class="p-2.5">Lies at geometric centre (Sec 6.2).</td>
+                  <td class="p-2.5">Also lies at geometric centre if body is small enough!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between">
+        <button onclick="switchTab(3)" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-sm flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back: Centre of Gravity &amp; Lab</span>
+        </button>
+        <button onclick="switchTab(5)" class="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg transition">
+          <span>Next: 6 Solved Numericals (Incl. NCERT Ex 6.8 &amp; 6.9)</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 5: PRACTICE NUMERICALS WITH SOLUTIONS & INTERACTIVE VISUALIZERS
+         ===================================================================== -->
+    <section id="tab-5" class="tab-panel hidden space-y-8">
+      <!-- Banner -->
+      <div class="rounded-3xl bg-gradient-to-r from-amber-900 via-orange-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl border border-amber-700/40">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="space-y-2 max-w-3xl">
+            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-400/20 text-amber-200 border border-amber-300/30">
+              NCERT Examples 6.8, 6.9 + 4 Class 11 Application Numericals
+            </span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold">
+              Solved Numerical Problems &amp; Interactive Calculators
+            </h2>
+            <p class="text-amber-100/90 text-sm sm:text-base">
+              Master rotational &amp; translational equilibrium problems step by step. Includes exact textbook diagrams (<strong>Fig. 6.26</strong> &amp; <strong>Fig. 6.27</strong>) and interactive parameter explorers!
+            </p>
+          </div>
+          <div class="flex gap-2">
+            <button onclick="toggleAllSolutions(true)" class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition">
+              Expand All Solutions
+            </button>
+            <button onclick="toggleAllSolutions(false)" class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-xs font-bold transition">
+              Collapse All
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUMERICAL 1: NCERT EXAMPLE 6.8 (WITH FIG. 6.26 & INTERACTIVE SOLVER) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-sky-500/40 shadow-md overflow-hidden">
+        <div class="bg-sky-600 text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-0.5 rounded bg-white text-sky-800 font-extrabold text-xs">NCERT Example 6.8</span>
+            <h3 class="font-bold text-base sm:text-lg">Metal Bar on Two Knife-Edges (Fig. 6.26)</h3>
+          </div>
+          <span class="text-xs font-mono bg-sky-800/60 px-3 py-1 rounded-full">g = 9.8 m/s²</span>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <!-- Problem Statement -->
+          <div class="p-4 rounded-2xl bg-sky-50/70 dark:bg-sky-950/30 border border-sky-200 dark:border-sky-800/60 text-sm sm:text-base leading-relaxed font-medium text-slate-800 dark:text-slate-200">
+            <strong>Problem 1 (NCERT Ex 6.8):</strong> A metal bar <span class="font-mono font-bold">70 cm</span> long and <span class="font-mono font-bold">4.00 kg</span> in mass is supported on two knife-edges placed <span class="font-mono font-bold">10 cm</span> from each end. A <span class="font-mono font-bold">6.00 kg</span> load is suspended at <span class="font-mono font-bold">30 cm</span> from one end. Find the reactions at the knife-edges. (Assume the bar to be of uniform cross section and homogeneous.)
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <!-- Fig. 6.26 SVG Diagram (6 cols) -->
+            <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 border border-slate-200 dark:border-slate-800">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold text-sky-600 dark:text-sky-400">NCERT Fig. 6.26 — Free Body Diagram</span>
+                <span class="text-xs font-mono text-slate-500">AB = 70 cm, AG = 35 cm</span>
+              </div>
+              <svg viewBox="0 0 500 220" class="w-full h-auto">
+                <!-- Rod AB -->
+                <rect x="50" y="95" width="400" height="12" fill="#e2e8f0" stroke="#1e293b" stroke-width="2" />
+                <text x="35" y="106" class="fill-slate-800 dark:fill-slate-200 font-bold text-sm">A</text>
+                <text x="456" y="106" class="fill-slate-800 dark:fill-slate-200 font-bold text-sm">B</text>
+
+                <!-- Knife Edge K1 at 10cm from A (x = 50 + 10/70*400 = 107) -->
+                <polygon points="107,107 98,128 116,128" fill="#1e293b" class="dark:fill-amber-400" />
+                <text x="120" y="132" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">K₁</text>
+                <line x1="107" y1="95" x2="107" y2="38" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-up-green)" />
+                <text x="107" y="30" text-anchor="middle" class="fill-emerald-600 dark:fill-emerald-400 font-bold text-sm">R₁</text>
+
+                <!-- Knife Edge K2 at 10cm from B (x = 450 - 57 = 393) -->
+                <polygon points="393,107 384,128 402,128" fill="#1e293b" class="dark:fill-amber-400" />
+                <text x="406" y="132" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">K₂</text>
+                <line x1="393" y1="95" x2="393" y2="38" stroke="#059669" stroke-width="2.5" marker-end="url(#arrow-up-green)" />
+                <text x="393" y="30" text-anchor="middle" class="fill-emerald-600 dark:fill-emerald-400 font-bold text-sm">R₂</text>
+
+                <!-- Suspended Load W1 at P (30cm from A -> x = 50 + 30/70*400 = 221) -->
+                <circle cx="221" cy="101" r="3.5" fill="#e11d48" />
+                <text x="221" y="88" text-anchor="middle" class="fill-rose-600 font-bold text-xs">P</text>
+                <line x1="221" y1="107" x2="221" y2="175" stroke="#e11d48" stroke-width="2.5" marker-end="url(#arrow-down-red)" />
+                <text x="216" y="194" text-anchor="end" class="fill-rose-600 font-bold text-sm">W₁ (6.00g)</text>
+
+                <!-- CG of Rod at G (35cm from A -> x = 250) -->
+                <circle cx="250" cy="101" r="4" fill="#0284c7" />
+                <text x="250" y="88" text-anchor="middle" class="fill-sky-600 font-bold text-xs">G</text>
+                <line x1="250" y1="107" x2="250" y2="175" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="5,3" marker-end="url(#arrow-down-blue)" />
+                <text x="256" y="194" text-anchor="start" class="fill-sky-600 font-bold text-sm">W (4.00g)</text>
+
+                <!-- Distance Callouts -->
+                <text x="250" y="213" text-anchor="middle" class="fill-slate-500 font-mono text-[11px]">
+                  AK₁ = BK₂ = 10 cm | K₁G = K₂G = 25 cm | PG = 5 cm
+                </text>
+              </svg>
+            </div>
+
+            <!-- Interactive What-If Explorer for Example 6.8 (6 cols) -->
+            <div class="lg:col-span-6 p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Interactive Example 6.8 Explorer</span>
+                <button onclick="resetEx68()" class="text-xs font-bold text-sky-600 hover:underline">Reset to NCERT Values</button>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300">
+                Slide the suspended load position <strong>AP</strong> (from 10 cm to 60 cm) to see how normal reactions <strong>R₁</strong> and <strong>R₂</strong> shift between the two knife-edges!
+              </p>
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs font-bold">
+                  <span>Suspended Load Position AP (from end A):</span>
+                  <span id="ex68PosLbl" class="font-mono text-rose-600">30 cm (PG = 5 cm)</span>
+                </div>
+                <input id="ex68Slider" type="range" min="10" max="60" step="1" value="30" oninput="updateEx68Sim()" class="w-full" />
+              </div>
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-center">
+                  <div class="text-xs text-slate-500">Reaction at K₁ (R₁)</div>
+                  <div id="ex68R1Val" class="font-mono text-lg font-extrabold text-emerald-600 dark:text-emerald-400">54.88 N (≈ 55 N)</div>
+                </div>
+                <div class="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-center">
+                  <div class="text-xs text-slate-500">Reaction at K₂ (R₂)</div>
+                  <div id="ex68R2Val" class="font-mono text-lg font-extrabold text-emerald-600 dark:text-emerald-400">43.12 N (≈ 43 N)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toggleable Full NCERT Solution -->
+          <div>
+            <button onclick="toggleSol('sol-1')" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+              <i data-lucide="eye" class="w-4 h-4 text-sky-600"></i>
+              <span>Show / Hide Complete Step-by-Step NCERT Solution</span>
+            </button>
+            <div id="sol-1" class="sol-box mt-4 p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-3 text-xs sm:text-sm font-mono leading-relaxed">
+              <div><strong>1. Geometry &amp; Forces:</strong> Rod is homogeneous &amp; uniform, so CG is at centre G: <span class="text-sky-600">AB = 70 cm, AG = 35 cm, AP = 30 cm ⟹ PG = 5 cm = 0.05 m</span>. Also <span class="text-sky-600">AK₁ = BK₂ = 10 cm ⟹ K₁G = K₂G = 25 cm = 0.25 m</span>.</div>
+              <div>Weight of rod: <span class="text-sky-600">W = 4.00g N</span>; Suspended load: <span class="text-rose-600">W₁ = 6.00g N</span> (where g = 9.8 m/s²).</div>
+              <div><strong>2. Translational Equilibrium (Vertical forces):</strong></div>
+              <div class="pl-4 text-emerald-700 dark:text-emerald-400 font-bold">R₁ + R₂ − W₁ − W = 0  ⟹  R₁ + R₂ = 4.00g + 6.00g = 10.00g = 98.00 N &nbsp;&nbsp;(Eq. iii)</div>
+              <div><strong>3. Rotational Equilibrium (Moments about G, anticlockwise +ve, clockwise -ve):</strong></div>
+              <div class="pl-4">−R₁(K₁G) + W₁(PG) + R₂(K₂G) = 0 &nbsp;&nbsp;(Eq. ii)</div>
+              <div class="pl-4">−0.25 R₁ + 0.05 (6.00g) + 0.25 R₂ = 0</div>
+              <div class="pl-4 text-indigo-600 dark:text-indigo-400 font-bold">R₁ − R₂ = 1.2g N = 1.2 × 9.8 = 11.76 N &nbsp;&nbsp;(Eq. iv)</div>
+              <div><strong>4. Solving (iii) and (iv):</strong></div>
+              <div class="pl-4 font-bold text-base text-slate-900 dark:text-white">R₁ = 54.88 N (≈ 55 N at K₁) &nbsp;&nbsp;and&nbsp;&nbsp; R₂ = 43.12 N (≈ 43 N at K₂).</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NUMERICAL 2: NCERT EXAMPLE 6.9 (LADDER LEANING ON FRICTIONLESS WALL - FIG 6.27) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border-2 border-indigo-500/40 shadow-md overflow-hidden">
+        <div class="bg-indigo-600 text-white px-6 py-3.5 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-0.5 rounded bg-white text-indigo-800 font-extrabold text-xs">NCERT Example 6.9</span>
+            <h3 class="font-bold text-base sm:text-lg">Ladder Leaning Against a Frictionless Wall (Fig. 6.27)</h3>
+          </div>
+          <span class="text-xs font-mono bg-indigo-800/60 px-3 py-1 rounded-full">Classic Exam Favourite</span>
+        </div>
+
+        <div class="p-6 space-y-6">
+          <div class="p-4 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800/60 text-sm sm:text-base leading-relaxed font-medium text-slate-800 dark:text-slate-200">
+            <strong>Problem 2 (NCERT Ex 6.9):</strong> A <span class="font-mono font-bold">3 m</span> long ladder weighing <span class="font-mono font-bold">20 kg</span> leans on a frictionless wall. Its feet rest on the floor <span class="font-mono font-bold">1 m</span> from the wall as shown in Fig. 6.27. Find the reaction forces of the wall and the floor.
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <!-- Fig. 6.27 SVG Diagram (6 cols) -->
+            <div class="lg:col-span-6 bg-slate-50 dark:bg-slate-950 rounded-2xl p-4 border border-slate-200 dark:border-slate-800">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">NCERT Fig. 6.27 — Ladder Equilibrium</span>
+                <span class="text-xs font-mono text-slate-500">AB = 3m, AC = 1m, BC = 2√2m</span>
+              </div>
+              <svg viewBox="0 0 440 270" class="w-full h-auto">
+                <!-- Floor AC and Wall BC -->
+                <line x1="80" y1="230" x2="330" y2="230" stroke="#334155" stroke-width="3" />
+                <line x1="310" y1="25" x2="310" y2="230" stroke="#334155" stroke-width="3" />
+                <text x="318" y="242" class="fill-slate-700 dark:fill-slate-300 font-bold text-xs">C</text>
+
+                <!-- Ladder AB from A(170, 230) to B(310, 45) -->
+                <line x1="170" y1="230" x2="310" y2="45" stroke="#d97706" stroke-width="5" stroke-linecap="round" />
+                <text x="155" y="244" class="fill-slate-800 dark:fill-slate-200 font-bold text-xs">A</text>
+                <text x="318" y="48" class="fill-slate-800 dark:fill-slate-200 font-bold text-xs">B</text>
+
+                <!-- Wall Normal Reaction F1 at B -->
+                <line x1="310" y1="45" x2="255" y2="45" stroke="#4f46e5" stroke-width="2.5" marker-end="url(#sim-arr-blue)" />
+                <text x="248" y="49" text-anchor="end" class="fill-indigo-600 dark:fill-indigo-400 font-bold text-xs">F₁ (Wall)</text>
+
+                <!-- Midpoint D (CG of Ladder) at (240, 137.5) -->
+                <circle cx="240" cy="137.5" r="4" fill="#e11d48" />
+                <text x="228" y="135" class="fill-rose-600 font-bold text-xs">D</text>
+                <line x1="240" y1="137.5" x2="240" y2="195" stroke="#e11d48" stroke-width="2.5" marker-end="url(#sim-arr-red)" />
+                <text x="247" y="188" class="fill-rose-600 font-bold text-xs">W = 196 N</text>
+                <line x1="240" y1="195" x2="240" y2="230" stroke="#64748b" stroke-width="1.2" stroke-dasharray="4,3" />
+                <text x="240" y="244" text-anchor="middle" class="fill-slate-500 text-xs">E</text>
+
+                <!-- Floor Reaction Components at A: N (upward), F (friction toward wall), and resultant F2 -->
+                <line x1="170" y1="230" x2="170" y2="162" stroke="#059669" stroke-width="2.2" marker-end="url(#sim-arr-green)" />
+                <text x="162" y="168" text-anchor="end" class="fill-emerald-600 font-bold text-xs">N</text>
+
+                <line x1="170" y1="230" x2="215" y2="230" stroke="#0284c7" stroke-width="2.5" marker-end="url(#dim-arrow)" />
+                <text x="202" y="246" class="fill-sky-600 font-bold text-xs">F (Friction)</text>
+
+                <!-- Resultant F2 -->
+                <line x1="170" y1="230" x2="184" y2="158" stroke="#0f172a" class="dark:stroke-amber-300" stroke-width="2.5" marker-end="url(#sim-arr-green)" />
+                <text x="190" y="162" class="fill-slate-900 dark:fill-amber-300 font-extrabold text-xs">F₂</text>
+
+                <!-- Height BC = 2√2 m and Base AC = 1 m -->
+                <text x="322" y="140" class="fill-slate-600 dark:fill-slate-400 font-mono text-xs">BC = 2√2 m</text>
+                <text x="240" y="262" text-anchor="middle" class="fill-slate-600 dark:fill-slate-400 font-mono text-xs">AC = 1 m</text>
+              </svg>
+            </div>
+
+            <!-- Interactive Explorer for Example 6.9 (6 cols) -->
+            <div class="lg:col-span-6 p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Interactive Ladder Foot Distance Explorer</span>
+                <button onclick="resetEx69()" class="text-xs font-bold text-indigo-600 hover:underline">Reset to AC = 1.0 m</button>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300">
+                What happens as the foot of the 3 m ladder slips farther from the wall (increasing <strong>AC</strong>)? Watch the required floor friction <strong>F = F₁</strong> shoot up!
+              </p>
+              <div class="space-y-1">
+                <div class="flex justify-between text-xs font-bold">
+                  <span>Foot Distance from Wall (AC):</span>
+                  <span id="ex69BaseLbl" class="font-mono text-indigo-600">1.00 m (BC = 2.83 m)</span>
+                </div>
+                <input id="ex69Slider" type="range" min="0.5" max="2.5" step="0.1" value="1.0" oninput="updateEx69Sim()" class="w-full" />
+              </div>
+              <div class="grid grid-cols-3 gap-2 pt-2 text-center">
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                  <div class="text-[11px] text-slate-500">Wall Force F₁ (= F)</div>
+                  <div id="ex69F1Val" class="font-mono text-sm sm:text-base font-extrabold text-indigo-600 dark:text-indigo-400">34.6 N</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                  <div class="text-[11px] text-slate-500">Floor Reaction F₂</div>
+                  <div id="ex69F2Val" class="font-mono text-sm sm:text-base font-extrabold text-emerald-600 dark:text-emerald-400">199.0 N</div>
+                </div>
+                <div class="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                  <div class="text-[11px] text-slate-500">Angle α of F₂</div>
+                  <div id="ex69AlphaVal" class="font-mono text-sm sm:text-base font-extrabold text-amber-600 dark:text-amber-400">80.0°</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Toggleable Full Solution -->
+          <div>
+            <button onclick="toggleSol('sol-2')" class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm flex items-center gap-2 transition">
+              <i data-lucide="eye" class="w-4 h-4 text-indigo-600"></i>
+              <span>Show / Hide Complete Step-by-Step NCERT Solution</span>
+            </button>
+            <div id="sol-2" class="sol-box mt-4 p-5 rounded-2xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2.5 text-xs sm:text-sm font-mono leading-relaxed">
+              <div><strong>1. Geometry:</strong> Ladder length <span class="text-indigo-600">AB = 3 m</span>, foot distance <span class="text-indigo-600">AC = 1 m</span>. By Pythagoras theorem, wall height <span class="text-indigo-600">BC = √(3² − 1²) = √8 = 2√2 m</span>. Weight <span class="text-rose-600">W = 20 × 9.8 = 196.0 N</span> acts at midpoint D (so AE = 1/2 m).</div>
+              <div><strong>2. Translational Equilibrium:</strong></div>
+              <div class="pl-4">Vertical forces: <span class="text-emerald-600 font-bold">N − W = 0  ⟹  N = 196.0 N</span> &nbsp;&nbsp;(i)</div>
+              <div class="pl-4">Horizontal forces: <span class="text-sky-600 font-bold">F − F₁ = 0  ⟹  F = F₁</span> &nbsp;&nbsp;(ii)</div>
+              <div><strong>3. Rotational Equilibrium (Taking moments about foot A):</strong></div>
+              <div class="pl-4">2√2 F₁ − (1/2) W = 0 &nbsp;&nbsp;(iii)</div>
+              <div class="pl-4 text-indigo-600 font-bold">F₁ = W / (4√2) = 196.0 / (4√2) = 34.6 N &nbsp;⟹&nbsp; Friction F = 34.6 N</div>
+              <div><strong>4. Resultant Floor Reaction F₂ &amp; Angle α with horizontal:</strong></div>
+              <div class="pl-4 font-bold text-slate-900 dark:text-white">F₂ = √(F² + N²) = √(34.6² + 196.0²) = 199.0 N</div>
+              <div class="pl-4 font-bold text-amber-600">tan α = N / F = 4√2 ≈ 5.657  ⟹  α = tan⁻¹(4√2) ≈ 80°</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADDITIONAL 4 PRACTICE NUMERICALS (PROBLEMS 3 TO 6) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Problem 3 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300">Problem 3 • Crowbar Lever &amp; M.A.</span>
+              <span class="text-xs text-slate-400 font-mono">Section 6.8.1</span>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">
+              Lifting a Heavy Boulder with a Crowbar
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A uniform light crowbar of total length <span class="font-mono font-bold">1.80 m</span> is used to lift a stone of weight <span class="font-mono font-bold">1200 N</span> placed at one end. If a small pivot stone (fulcrum) is placed <span class="font-mono font-bold">20 cm</span> from the load end, calculate: (a) the Mechanical Advantage (M.A.), (b) the minimum effort required at the other end, and (c) the reaction force on the fulcrum.
+            </p>
+          </div>
+          <div>
+            <button onclick="toggleSol('sol-3')" class="w-full py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs flex items-center justify-center gap-2 transition">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+              <span>Toggle Step-by-Step Solution</span>
+            </button>
+            <div id="sol-3" class="sol-box hidden mt-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono space-y-1.5">
+              <div>• Load arm <span class="text-rose-600">d₁ = 0.20 m</span>; Effort arm <span class="text-indigo-600">d₂ = 1.80 − 0.20 = 1.60 m</span>.</div>
+              <div>• (a) <strong>Mechanical Advantage:</strong> M.A. = d₂ / d₁ = 1.60 / 0.20 = <strong>8.0</strong></div>
+              <div>• (b) <strong>Effort Required (F₂):</strong> F₂ = F₁ / M.A. = 1200 N / 8 = <strong>150 N</strong></div>
+              <div>• (c) <strong>Fulcrum Reaction (R):</strong> R = F₁ + F₂ = 1200 + 150 = <strong>1350 N</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">Problem 4 • Finding Unknown Mass &amp; CG</span>
+              <span class="text-xs text-slate-400 font-mono">NCERT Exercise Style</span>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">
+              Metre Stick Balanced with Two Coins
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A metre stick is balanced on a knife-edge at its centre (<span class="font-mono font-bold">50.0 cm</span> mark). When two coins, each of mass <span class="font-mono font-bold">5.0 g</span>, are put one on top of the other at the <span class="font-mono font-bold">12.0 cm</span> mark, the stick is found to be balanced at <span class="font-mono font-bold">45.0 cm</span>. What is the mass of the metre stick?
+            </p>
+          </div>
+          <div>
+            <button onclick="toggleSol('sol-4')" class="w-full py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs flex items-center justify-center gap-2 transition">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-600"></i>
+              <span>Toggle Step-by-Step Solution</span>
+            </button>
+            <div id="sol-4" class="sol-box hidden mt-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono space-y-1.5">
+              <div>• CG of uniform stick is at <span class="text-sky-600">50.0 cm</span>. Let mass of stick = <strong>M</strong> grams.</div>
+              <div>• Total mass of 2 coins at 12.0 cm mark: <span class="text-rose-600">m = 2 × 5.0 g = 10.0 g</span>.</div>
+              <div>• New fulcrum O' is at <span class="text-emerald-600">45.0 cm</span>.</div>
+              <div>• Distance of coins from O': d₁ = 45.0 − 12.0 = <strong>33.0 cm</strong> (anticlockwise).</div>
+              <div>• Distance of stick's CG from O': d₂ = 50.0 − 45.0 = <strong>5.0 cm</strong> (clockwise).</div>
+              <div>• By Principle of Moments: 10.0 g × 33.0 = M g × 5.0 ⟹ <strong>M = 66.0 g</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300">Problem 5 • Non-Uniform Rod CG</span>
+              <span class="text-xs text-slate-400 font-mono">Section 6.8.2</span>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">
+              Locating the Centre of Gravity of a Non-Uniform Bar
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A non-uniform bar of weight <span class="font-mono font-bold">W</span> and length <span class="font-mono font-bold">2.0 m</span> is suspended horizontally by two vertical light strings attached to its ends A and B. The tension in the string at A is <span class="font-mono font-bold">0.60 W</span> and at B is <span class="font-mono font-bold">0.40 W</span>. Find the distance <span class="font-mono font-bold">x</span> of the Centre of Gravity (G) from end A.
+            </p>
+          </div>
+          <div>
+            <button onclick="toggleSol('sol-5')" class="w-full py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs flex items-center justify-center gap-2 transition">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-rose-600"></i>
+              <span>Toggle Step-by-Step Solution</span>
+            </button>
+            <div id="sol-5" class="sol-box hidden mt-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono space-y-1.5">
+              <div>• Let CG (G) be at distance <strong>x</strong> from end A. Weight <strong>W</strong> acts downward at G.</div>
+              <div>• Taking moments about end A for rotational equilibrium (Στ_A = 0):</div>
+              <div>• Clockwise moment of W about A = W × x</div>
+              <div>• Anticlockwise moment of T_B about A = (0.40 W) × 2.0 m</div>
+              <div>• Equating moments: W x = 0.80 W ⟹ <strong>x = 0.80 m (or 80 cm) from end A</strong>.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem 6 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Problem 6 • Critical Tipping Load</span>
+              <span class="text-xs text-slate-400 font-mono">HOTS / JEE-NEET Bridge</span>
+            </div>
+            <h4 class="font-bold text-base text-slate-900 dark:text-white">
+              Maximum Overhang Weight Before a Plank Tips Over
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A uniform wooden plank of mass <span class="font-mono font-bold">12 kg</span> and length <span class="font-mono font-bold">4.0 m</span> rests horizontally on two supports P and Q. Support P is at one end (<span class="font-mono font-bold">0.0 m</span>) and support Q is at <span class="font-mono font-bold">3.0 m</span> from P (leaving a <span class="font-mono font-bold">1.0 m</span> overhang). What is the maximum mass <span class="font-mono font-bold">m</span> that can be hung at the extreme overhanging end without tipping the plank?
+            </p>
+          </div>
+          <div>
+            <button onclick="toggleSol('sol-6')" class="w-full py-2 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs flex items-center justify-center gap-2 transition">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600"></i>
+              <span>Toggle Step-by-Step Solution</span>
+            </button>
+            <div id="sol-6" class="sol-box hidden mt-3 p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs font-mono space-y-1.5">
+              <div>• CG of uniform 4.0 m plank is at its midpoint: <strong>2.0 m from P</strong> (i.e., 1.0 m to the left of Q).</div>
+              <div>• On the verge of tipping about support Q, the plank just lifts off support P, so normal reaction <strong>R_P = 0</strong>!</div>
+              <div>• Taking moments about pivot Q (at 3.0 m mark):</div>
+              <div>• Anticlockwise moment of plank's weight = (12g) × (3.0 − 2.0) = 12g × 1.0</div>
+              <div>• Clockwise moment of overhanging mass m = (mg) × (4.0 − 3.0) = mg × 1.0</div>
+              <div>• Equating moments: mg × 1.0 = 12g × 1.0 ⟹ <strong>m_max = 12 kg</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex justify-between">
+        <button onclick="switchTab(4)" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-sm flex items-center gap-2 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Back: CG Theory &amp; CG vs CM</span>
+        </button>
+        <button onclick="switchTab(6)" class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-extrabold text-sm flex items-center gap-2 shadow-lg transition">
+          <i data-lucide="trophy" class="w-4 h-4"></i>
+          <span>Enter Gamified Quiz Arena (6 MCQs)</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TAB 6: GAMIFIED QUIZ ARENA (6 SYLLABUS-ALIGNED MCQS)
+         ===================================================================== -->
+    <section id="tab-6" class="tab-panel hidden space-y-8">
+      <!-- Gamified Arena Top HUD -->
+      <div class="rounded-3xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 shadow-xl border border-indigo-500/30">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-bold">
+              <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+              Classroom Mastery Challenge • Curated by Hrishikesh M (PGT Physics)
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold mt-2">
+              Rotational Equilibrium &amp; Centre of Gravity Quiz Arena
+            </h2>
+          </div>
+
+          <!-- Scoreboard HUD -->
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="px-4 py-2 rounded-2xl bg-white/10 border border-white/15 text-center">
+              <div class="text-[10px] uppercase tracking-wider text-indigo-300 font-bold">XP Score</div>
+              <div id="quizXP" class="font-mono text-xl font-extrabold text-amber-400">0 XP</div>
+            </div>
+            <div class="px-4 py-2 rounded-2xl bg-white/10 border border-white/15 text-center">
+              <div class="text-[10px] uppercase tracking-wider text-indigo-300 font-bold">Streak</div>
+              <div id="quizStreak" class="font-mono text-xl font-extrabold text-emerald-400">🔥 0</div>
+            </div>
+            <div class="px-4 py-2 rounded-2xl bg-white/10 border border-white/15 text-center">
+              <div class="text-[10px] uppercase tracking-wider text-indigo-300 font-bold">Progress</div>
+              <div id="quizProgressText" class="font-mono text-xl font-extrabold text-sky-300">1 / 6</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="w-full h-2.5 bg-slate-800 rounded-full mt-5 overflow-hidden">
+          <div id="quizProgressBar" class="h-full bg-gradient-to-r from-sky-400 via-indigo-400 to-emerald-400 transition-all duration-300" style="width: 16.66%"></div>
+        </div>
+      </div>
+
+      <!-- Active Question Card -->
+      <div id="quizActiveCard" class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-lg space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <span id="quizTopicTag" class="px-3 py-1 rounded-full text-xs font-bold bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-300">
+            Question 1 • Principle of Moments
+          </span>
+
+          <!-- Lifelines -->
+          <div class="flex items-center gap-2">
+            <button id="btn5050" onclick="useQuiz5050()" class="px-3 py-1.5 rounded-xl border border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 text-xs font-bold flex items-center gap-1.5 hover:bg-amber-100 transition">
+              <i data-lucide="scissors" class="w-3.5 h-3.5"></i>
+              <span>50:50 Lifeline (1 left)</span>
+            </button>
+            <button id="btnHint" onclick="useQuizHint()" class="px-3 py-1.5 rounded-xl border border-sky-300 dark:border-sky-700 bg-sky-50 dark:bg-sky-950/50 text-sky-800 dark:text-sky-300 text-xs font-bold flex items-center gap-1.5 hover:bg-sky-100 transition">
+              <i data-lucide="lightbulb" class="w-3.5 h-3.5"></i>
+              <span>Teacher's Hint</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question Text -->
+        <h3 id="quizQuestionText" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-relaxed">
+          Loading question...
+        </h3>
+
+        <!-- Hint Box -->
+        <div id="quizHintBox" class="hidden p-4 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 text-xs sm:text-sm text-amber-900 dark:text-amber-200"></div>
+
+        <!-- Options Grid -->
+        <div id="quizOptionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+
+        <!-- Feedback & Rationale Box -->
+        <div id="quizFeedbackBox" class="hidden p-5 rounded-2xl border space-y-2">
+          <div id="quizFeedbackTitle" class="font-extrabold text-base"></div>
+          <p id="quizFeedbackRationale" class="text-xs sm:text-sm leading-relaxed"></p>
+        </div>
+
+        <!-- Next / Finish Button -->
+        <div class="flex justify-between items-center pt-2">
+          <button onclick="resetQuiz()" class="text-xs font-bold text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition">
+            ↻ Restart Quiz
+          </button>
+          <button id="quizNextBtn" onclick="nextQuizQuestion()" class="hidden px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm flex items-center gap-2 shadow-md transition">
+            <span>Next Question</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz Completion Trophy Screen (Hidden initially) -->
+      <div id="quizResultScreen" class="hidden bg-white dark:bg-slate-900 rounded-3xl p-8 border-2 border-amber-400/50 shadow-xl text-center space-y-6">
+        <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 text-white flex items-center justify-center mx-auto shadow-lg">
+          <i data-lucide="award" class="w-11 h-11"></i>
+        </div>
+        <div class="space-y-2">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">
+            Module Assessment Complete!
+          </span>
+          <h3 id="quizFinalTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+            Outstanding Equilibrium Master!
+          </h3>
+          <p id="quizFinalSummary" class="text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-xl mx-auto"></p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 max-w-md mx-auto">
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <div class="text-xs text-slate-500">Accuracy</div>
+            <div id="resAccuracy" class="font-mono text-xl font-extrabold text-emerald-600 mt-1">100%</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <div class="text-xs text-slate-500">Total XP</div>
+            <div id="resXP" class="font-mono text-xl font-extrabold text-amber-500 mt-1">600 XP</div>
+          </div>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <div class="text-xs text-slate-500">Best Streak</div>
+            <div id="resStreak" class="font-mono text-xl font-extrabold text-indigo-500 mt-1">6 🔥</div>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-sky-600 to-indigo-600 text-white font-bold text-sm shadow-lg hover:opacity-95 transition">
+            Play Again / Practice with Class
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER WITH CREATION CREDITS -->
+  <footer class="mt-12 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+        <span><strong>NCERT Class XI Physics Interactive eBook</strong> • Chapter 6: System of Particles and Rotational Motion</span>
+      </div>
+      <div class="font-semibold text-slate-700 dark:text-slate-200">
+        Designed &amp; Conceptualized for Classroom Teaching • Credits: <span class="text-sky-600 dark:text-sky-400 font-extrabold">Hrishikesh M (PGT Physics)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT ENGINE FOR TABS, SIMULATIONS & GAMIFIED QUIZ -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // -------------------------------------------------------------------------
+    // THEME & SMARTBOARD FONT SCALING
+    // -------------------------------------------------------------------------
+    let fontScaleIdx = 0;
+    const fontScales = [1, 1.12, 1.25];
+    const fontLabels = ['100%', '112%', '125%'];
+
+    function cycleFontScale() {
+      fontScaleIdx = (fontScaleIdx + 1) % fontScales.length;
+      document.documentElement.style.setProperty('--font-scale', fontScales[fontScaleIdx]);
+      document.getElementById('fontScaleLabel').textContent = fontLabels[fontScaleIdx];
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+      const icon = document.getElementById('themeIcon');
+      icon.setAttribute('data-lucide', html.classList.contains('dark') ? 'sun' : 'moon');
+      lucide.createIcons();
+    }
+
+    // -------------------------------------------------------------------------
+    // 6-TAB NAVIGATION SYSTEM
+    // -------------------------------------------------------------------------
+    function switchTab(tabNum) {
+      for (let i = 1; i <= 6; i++) {
+        const panel = document.getElementById(`tab-${i}`);
+        const btn = document.getElementById(`tab-btn-${i}`);
+        if (i === tabNum) {
+          panel.classList.remove('hidden');
+          btn.classList.add('active');
+        } else {
+          panel.classList.add('hidden');
+          btn.classList.remove('active');
+        }
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 1 SIMULATION: VIRTUAL LEVER & PRINCIPLE OF MOMENTS
+    // -------------------------------------------------------------------------
+    function updateLeverSim() {
+      const F1 = parseFloat(document.getElementById('sliderF1').value);
+      const d1 = parseFloat(document.getElementById('sliderD1').value);
+      const F2 = parseFloat(document.getElementById('sliderF2').value);
+      const d2 = parseFloat(document.getElementById('sliderD2').value);
+      const thetaDeg = parseFloat(document.getElementById('sliderTheta').value);
+      const thetaRad = (thetaDeg * Math.PI) / 180;
+
+      // Update labels
+      document.getElementById('lblF1').textContent = `${F1} N`;
+      document.getElementById('lblD1').textContent = `${d1.toFixed(2)} m`;
+      document.getElementById('lblF2').textContent = `${F2} N`;
+      document.getElementById('lblD2').textContent = `${d2.toFixed(2)} m`;
+      document.getElementById('lblTheta').textContent = thetaDeg === 90 ? `90° (Perpendicular)` : `${thetaDeg}°`;
+
+      // Torques & Reaction
+      const sinT = Math.sin(thetaRad);
+      const tau1 = d1 * F1 * sinT; // Anticlockwise (+)
+      const tau2 = d2 * F2 * sinT; // Clockwise (-)
+      const netTau = tau1 - tau2;
+      const R = (F1 + F2) * sinT;
+      const MA = d2 / d1;
+
+      document.getElementById('simTau1Val').textContent = `+${tau1.toFixed(1)} N·m`;
+      document.getElementById('simTau2Val').textContent = `-${tau2.toFixed(1)} N·m`;
+      document.getElementById('simNetTauVal').textContent = `${netTau >= 0 ? '+' : ''}${netTau.toFixed(1)} N·m`;
+      document.getElementById('simMAVal').textContent = `M.A. = ${MA.toFixed(2)}`;
+      document.getElementById('simReactionReadout').textContent = `R = ${(F1 + F2).toFixed(1)} N`;
+
+      // Compute visual tilt angle (clamped between -16 deg and +16 deg)
+      // Note: SVG positive rotate is clockwise, so if netTau > 0 (anticlockwise), SVG rotate is negative!
+      const tiltDeg = Math.max(-16, Math.min(16, -netTau * 0.22));
+      document.getElementById('simBeamGroup').setAttribute('transform', `rotate(${tiltDeg.toFixed(2)}, 300, 175)`);
+
+      // Status Badge
+      const badge = document.getElementById('leverStatusBadge');
+      const netEl = document.getElementById('simNetTauVal');
+      if (Math.abs(netTau) < 0.5) {
+        badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300';
+        badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span><span>ROTATIONAL EQUILIBRIUM (d₁F₁ = d₂F₂)</span>`;
+        netEl.className = 'font-mono text-base sm:text-lg font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5';
+      } else if (netTau > 0) {
+        badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-rose-100 text-rose-800 dark:bg-rose-900/60 dark:text-rose-300';
+        badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span><span>TILTING ANTICLOCKWISE (+τ₁ &gt; τ₂)</span>`;
+        netEl.className = 'font-mono text-base sm:text-lg font-extrabold text-rose-600 dark:text-rose-400 mt-0.5';
+      } else {
+        badge.className = 'inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-extrabold bg-indigo-100 text-indigo-800 dark:bg-indigo-900/60 dark:text-indigo-300';
+        badge.innerHTML = `<span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span><span>TILTING CLOCKWISE (τ₂ &gt; τ₁)</span>`;
+        netEl.className = 'font-mono text-base sm:text-lg font-extrabold text-indigo-600 dark:text-indigo-400 mt-0.5';
+      }
+
+      // Update SVG coordinates (60px per meter from Fulcrum X=300)
+      const xA = 300 - d1 * 60;
+      const xB = 300 + d2 * 60;
+
+      document.getElementById('simD1Line').setAttribute('x1', xA);
+      document.getElementById('simD1Text').setAttribute('x', (xA + 300) / 2);
+      document.getElementById('simD1Text').textContent = `d₁ = ${d1}m`;
+
+      document.getElementById('simD2Line').setAttribute('x2', xB);
+      document.getElementById('simD2Text').setAttribute('x', (300 + xB) / 2);
+      document.getElementById('simD2Text').textContent = `d₂ = ${d2}m`;
+
+      // Force Vectors at angle theta
+      const len1 = 30 + F1 * 0.55;
+      const len2 = 30 + F2 * 0.55;
+      const dx1 = len1 * Math.cos(thetaRad);
+      const dy1 = len1 * Math.sin(thetaRad);
+      const dx2 = len2 * Math.cos(thetaRad);
+      const dy2 = len2 * Math.sin(thetaRad);
+
+      document.getElementById('simPointA').setAttribute('cx', xA);
+      document.getElementById('simLabelA').setAttribute('x', xA);
+      const f1Line = document.getElementById('simF1Line');
+      f1Line.setAttribute('x1', xA);
+      f1Line.setAttribute('y1', 175);
+      f1Line.setAttribute('x2', xA - dx1);
+      f1Line.setAttribute('y2', 175 + dy1);
+      const f1Txt = document.getElementById('simF1Text');
+      f1Txt.setAttribute('x', xA - dx1);
+      f1Txt.setAttribute('y', 175 + dy1 + 16);
+      f1Txt.textContent = `F₁ = ${F1} N`;
+
+      document.getElementById('simPointB').setAttribute('cx', xB);
+      document.getElementById('simLabelB').setAttribute('x', xB);
+      const f2Line = document.getElementById('simF2Line');
+      f2Line.setAttribute('x1', xB);
+      f2Line.setAttribute('y1', 175);
+      f2Line.setAttribute('x2', xB - dx2);
+      f2Line.setAttribute('y2', 175 + dy2);
+      const f2Txt = document.getElementById('simF2Text');
+      f2Txt.setAttribute('x', xB - dx2);
+      f2Txt.setAttribute('y', 175 + dy2 + 16);
+      f2Txt.textContent = `F₂ = ${F2} N`;
+
+      // Reaction R vector height
+      const rLen = Math.min(95, 35 + (F1 + F2) * 0.35);
+      document.getElementById('simRLine').setAttribute('y2', 175 - rLen);
+      document.getElementById('simRText').setAttribute('y', 175 - rLen);
+      document.getElementById('simRText').textContent = `R = ${F1 + F2} N`;
+    }
+
+    function setLeverPreset(F1, d1, F2, d2, theta) {
+      document.getElementById('sliderF1').value = F1;
+      document.getElementById('sliderD1').value = d1;
+      document.getElementById('sliderF2').value = F2;
+      document.getElementById('sliderD2').value = d2;
+      document.getElementById('sliderTheta').value = theta;
+      updateLeverSim();
+    }
+
+    function autoBalanceEffort() {
+      const F1 = parseFloat(document.getElementById('sliderF1').value);
+      const d1 = parseFloat(document.getElementById('sliderD1').value);
+      const d2 = parseFloat(document.getElementById('sliderD2').value);
+      let reqF2 = (F1 * d1) / d2;
+      reqF2 = Math.max(10, Math.min(100, Math.round(reqF2)));
+      document.getElementById('sliderF2').value = reqF2;
+      updateLeverSim();
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 2 SIMULATION: ANGLE PROOF VISUALIZER
+    // -------------------------------------------------------------------------
+    function updateAngleProof() {
+      const deg = parseFloat(document.getElementById('proofAngleSlider').value);
+      document.getElementById('proofAngleLabel').textContent = `${deg}°`;
+      const rad = (deg * Math.PI) / 180;
+
+      // O=(210,75), A=(100,75), B=(360,75)
+      const Ox = 210, Oy = 75;
+      const Ax = 100, Ay = 75;
+      const Bx = 360, By = 75;
+      const L = 85;
+      const ux = -Math.cos(rad);
+      const uy = Math.sin(rad);
+
+      const g = document.getElementById('angleProofVectors');
+      g.innerHTML = `
+        <!-- Force F1 at A -->
+        <line x1="${Ax}" y1="${Ay}" x2="${Ax + L*ux}" y2="${Ay + L*uy}" stroke="#e11d48" stroke-width="3" marker-end="url(#sim-arr-red)" />
+        <text x="${Ax + L*ux - 8}" y="${Ay + L*uy + 14}" class="fill-rose-600 font-bold text-xs">F₁</text>
+        <text x="${Ax + 18}" y="${Ay + 18}" class="fill-amber-600 font-mono font-bold text-[11px]">θ=${deg}°</text>
+
+        <!-- Force F2 at B -->
+        <line x1="${Bx}" y1="${By}" x2="${Bx + L*ux}" y2="${By + L*uy}" stroke="#4f46e5" stroke-width="3" marker-end="url(#sim-arr-blue)" />
+        <text x="${Bx + L*ux + 8}" y="${By + L*uy + 14}" class="fill-indigo-600 font-bold text-xs">F₂</text>
+        <text x="${Bx - 42}" y="${By + 18}" class="fill-amber-600 font-mono font-bold text-[11px]">θ=${deg}°</text>
+
+        <!-- Moment arms d1 sin(theta) and d2 sin(theta) -->
+        <text x="155" y="175" text-anchor="middle" class="fill-rose-600 font-mono text-xs font-bold">r₁⊥ = d₁ sin(${deg}°)</text>
+        <text x="295" y="175" text-anchor="middle" class="fill-indigo-600 font-mono text-xs font-bold">r₂⊥ = d₂ sin(${deg}°)</text>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 3 SIMULATION A: FIG. 6.24 PENCIL-TIP BALANCING
+    // -------------------------------------------------------------------------
+    function updatePencilSim() {
+      const dx = parseFloat(document.getElementById('pencilSlider').value);
+      const showParticles = document.getElementById('showParticlesChk').checked;
+
+      document.getElementById('particleVectorsGroup').style.display = showParticles ? 'block' : 'none';
+      document.getElementById('pencilSupportGroup').setAttribute('transform', `translate(${260 + dx}, 145)`);
+
+      const tilt = Math.max(-28, Math.min(28, -dx * 0.42));
+      document.getElementById('cardboardTiltGroup').setAttribute('transform', `translate(260, 145) rotate(${tilt.toFixed(1)})`);
+
+      const lbl = document.getElementById('pencilOffsetLabel');
+      const badge = document.getElementById('pencilEqBadge');
+      if (Math.abs(dx) <= 2) {
+        lbl.textContent = `At G (Δx = 0.0 cm)`;
+        badge.className = 'px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300';
+        badge.textContent = '✓ Balanced at Centre of Gravity G (R = Mg, Στ = 0)';
+      } else {
+        const cm = (dx * 0.1).toFixed(1);
+        lbl.textContent = `Δx = ${cm > 0 ? '+' : ''}${cm} cm from G`;
+        badge.className = 'px-3 py-1 rounded-full text-xs font-extrabold bg-rose-100 text-rose-800 dark:bg-rose-900/60 dark:text-rose-300';
+        badge.textContent = `⚠ Unbalanced Gravitational Torque! Cardboard tilts & falls (${dx > 0 ? 'Anticlockwise' : 'Clockwise'})`;
+      }
+    }
+
+    function snapPencilToCG() {
+      document.getElementById('pencilSlider').value = 0;
+      updatePencilSim();
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 3 SIMULATION B: FIG. 6.25 PLUMB-LINE SUSPENSION
+    // -------------------------------------------------------------------------
+    function suspendCardboard(point) {
+      const group = document.getElementById('plumbLaminaGroup');
+      const lA = document.getElementById('lineAA1');
+      const lB = document.getElementById('lineBB1');
+      const lC = document.getElementById('lineCC1');
+      const title = document.getElementById('plumbStepTitle');
+      const desc = document.getElementById('plumbStepDesc');
+
+      if (point === 'A') {
+        group.setAttribute('transform', 'translate(220, 190) rotate(0)');
+        lA.setAttribute('opacity', '1');
+        lB.setAttribute('opacity', '0.25');
+        lC.setAttribute('opacity', '0.25');
+        title.textContent = 'Step 1: Suspended from Point A → Vertical Line AA₁ Marked';
+        desc.textContent = 'The cardboard hangs in rotational equilibrium from A. The vertical plumb-line through A passes directly through CG (G). We draw line AA₁.';
+      } else if (point === 'B') {
+        // B is at (82, -48), angle from negative Y axis is ~60 deg
+        group.setAttribute('transform', 'translate(220, 190) rotate(-60)');
+        lA.setAttribute('opacity', '0.6');
+        lB.setAttribute('opacity', '1');
+        lC.setAttribute('opacity', '0.25');
+        title.textContent = 'Step 2: Suspended from Point B → Vertical Line BB₁ Marked';
+        desc.textContent = 'Now suspended from B, the cardboard rotates until G lies vertically below B. Marking vertical BB₁ gives the intersection G with AA₁!';
+      } else if (point === 'C') {
+        // C is at (-88, -38), angle is +66.6 deg
+        group.setAttribute('transform', 'translate(220, 190) rotate(66.6)');
+        lA.setAttribute('opacity', '0.6');
+        lB.setAttribute('opacity', '0.6');
+        lC.setAttribute('opacity', '1');
+        title.textContent = 'Step 3: Suspended from Point C → Vertical Line CC₁ Confirms G';
+        desc.textContent = 'Suspending from a third point C draws vertical line CC₁, which passes through the exact same intersection point G!';
+      } else {
+        group.setAttribute('transform', 'translate(220, 190) rotate(0)');
+        lA.setAttribute('opacity', '1');
+        lB.setAttribute('opacity', '1');
+        lC.setAttribute('opacity', '1');
+        title.textContent = 'Result: Intersection of AA₁, BB₁, and CC₁ Pinpoints the Centre of Gravity G!';
+        desc.textContent = 'All three plumb-lines intersect at one unique point G—the Centre of Gravity (and Centre of Mass) of the irregular lamina.';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 4 SIMULATION: CG VS CM IN UNIFORM VS NON-UNIFORM GRAVITY
+    // -------------------------------------------------------------------------
+    function updateCGvsCMSim() {
+      const val = parseFloat(document.getElementById('extentSlider').value);
+      const shiftY = 104 + val * 0.28; // Shifts downward toward stronger gravity at base
+      document.getElementById('cgShiftDot').setAttribute('cy', shiftY);
+      const lbl = document.getElementById('cgShiftLabel');
+      lbl.setAttribute('y', shiftY + 4);
+
+      const gTop = (9.80 - val * 0.025).toFixed(2);
+      document.getElementById('gTopText').textContent = `g_top = ${gTop} m/s²`;
+
+      const modeLbl = document.getElementById('extentModeLabel');
+      if (val === 0) {
+        lbl.textContent = 'CG (Coincides with CM)';
+        modeLbl.textContent = 'Small Body (Uniform g → CG = CM)';
+        modeLbl.className = 'text-emerald-600 font-mono';
+      } else {
+        lbl.textContent = 'CG (Shifted Below CM!)';
+        modeLbl.textContent = 'Extended Body (g varies → CG ≠ CM)';
+        modeLbl.className = 'text-rose-600 font-mono';
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 5 INTERACTIVE NUMERICAL EXPLORERS (EX 6.8 & EX 6.9)
+    // -------------------------------------------------------------------------
+    function updateEx68Sim() {
+      const AP = parseFloat(document.getElementById('ex68Slider').value); // cm from A
+      const PG = 35 - AP; // cm (+ if left of G, - if right of G)
+      const g = 9.8;
+      // R1 + R2 = 98 N
+      // -25 R1 + PG*(6.00g) + 25 R2 = 0 => R1 - R2 = (6 * 9.8 * PG) / 25
+      const diff = (6.0 * g * PG) / 25.0;
+      const R1 = (98.0 + diff) / 2.0;
+      const R2 = 98.0 - R1;
+
+      document.getElementById('ex68PosLbl').textContent = `${AP} cm (PG = ${Math.abs(PG)} cm)`;
+      document.getElementById('ex68R1Val').textContent = `${R1.toFixed(2)} N`;
+      document.getElementById('ex68R2Val').textContent = `${R2.toFixed(2)} N`;
+    }
+
+    function resetEx68() {
+      document.getElementById('ex68Slider').value = 30;
+      updateEx68Sim();
+    }
+
+    function updateEx69Sim() {
+      const AC = parseFloat(document.getElementById('ex69Slider').value);
+      const BC = Math.sqrt(9 - AC * AC);
+      const W = 196.0; // N
+      // BC * F1 = (AC / 2) * W => F1 = (W * AC) / (2 * BC)
+      const F1 = (W * AC) / (2 * BC);
+      const F2 = Math.sqrt(F1 * F1 + W * W);
+      const alpha = (Math.atan2(W, F1) * 180) / Math.PI;
+
+      document.getElementById('ex69BaseLbl').textContent = `${AC.toFixed(2)} m (BC = ${BC.toFixed(2)} m)`;
+      document.getElementById('ex69F1Val').textContent = `${F1.toFixed(1)} N`;
+      document.getElementById('ex69F2Val').textContent = `${F2.toFixed(1)} N`;
+      document.getElementById('ex69AlphaVal').textContent = `${alpha.toFixed(1)}°`;
+    }
+
+    function resetEx69() {
+      document.getElementById('ex69Slider').value = 1.0;
+      updateEx69Sim();
+    }
+
+    function toggleSol(id) {
+      document.getElementById(id).classList.toggle('hidden');
+    }
+
+    function toggleAllSolutions(show) {
+      document.querySelectorAll('.sol-box').forEach(el => {
+        if (show) el.classList.remove('hidden');
+        else el.classList.add('hidden');
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // TAB 6: GAMIFIED QUIZ ARENA (6 SYLLABUS-ALIGNED MCQS)
+    // -------------------------------------------------------------------------
+    const quizQuestions = [
+      {
+        topic: 'Question 1 • Principle of Moments & Mechanical Advantage',
+        question: 'An ideal lever has a load arm of 15 cm and an effort arm of 75 cm. What is its Mechanical Advantage (M.A.), and how much effort (F₂) is needed to lift a load (F₁) of 300 N in horizontal equilibrium?',
+        hint: 'Use NCERT Eq. (6.32b): M.A. = d₂ / d₁ = F₁ / F₂.',
+        options: [
+          { text: 'M.A. = 5.0 and Effort F₂ = 60 N', correct: true },
+          { text: 'M.A. = 0.2 and Effort F₂ = 1500 N', correct: false },
+          { text: 'M.A. = 5.0 and Effort F₂ = 300 N', correct: false },
+          { text: 'M.A. = 4.0 and Effort F₂ = 75 N', correct: false }
+        ],
+        rationale: 'By Eq. (6.32b), M.A. = Effort Arm (d₂) / Load Arm (d₁) = 75 cm / 15 cm = 5.0. Therefore, the required effort is F₂ = F₁ / M.A. = 300 N / 5.0 = 60 N.'
+      },
+      {
+        topic: 'Question 2 • Reaction at the Fulcrum (Section 6.8.1)',
+        question: 'In the Principle of Moments equation (d₁F₁ − d₂F₂ = 0) taken about the fulcrum O of an ideal lever, why does the upward reaction force R of the support not appear in the rotational equilibrium equation?',
+        hint: 'Think about the perpendicular distance (lever arm) of force R from the fulcrum O.',
+        options: [
+          { text: 'Because R acts directly at the fulcrum itself and therefore has zero moment arm about O.', correct: true },
+          { text: 'Because the upward reaction R is always zero for a massless rod.', correct: false },
+          { text: 'Because R acts parallel to the length of the lever rod.', correct: false },
+          { text: 'Because R only appears when the lever accelerates angularly.', correct: false }
+        ],
+        rationale: 'As stated explicitly in NCERT Section 6.8.1: "Note R acts at the fulcrum itself and has zero moment about the fulcrum" (since τ = r_⊥ R = 0 × R = 0). However, R is non-zero and equals F₁ + F₂ by translational equilibrium.'
+      },
+      {
+        topic: 'Question 3 • Centre of Gravity Definition (Eq. 6.33)',
+        question: 'According to NCERT Section 6.8.2, the Centre of Gravity (CG) of an extended body is rigorously defined as that point about which:',
+        hint: 'Check NCERT Equation (6.33): τ_g = Σ r_i × m_i g = 0.',
+        options: [
+          { text: 'The total gravitational torque on the body is zero.', correct: true },
+          { text: 'The total gravitational force (weight Mg) on the body becomes zero.', correct: false },
+          { text: 'The moment of inertia of the body is maximum.', correct: false },
+          { text: 'No mass particles are present inside the body.', correct: false }
+        ],
+        rationale: 'From Eq. (6.33), τ_g = Σ τ_i = Σ r_i × m_i g = 0. Thus, NCERT defines the CG of a body as that point where the total gravitational torque on the body is zero.'
+      },
+      {
+        topic: 'Question 4 • Centre of Gravity vs. Centre of Mass',
+        question: 'Which of the following statements accurately distinguishes the Centre of Mass (CM) from the Centre of Gravity (CG) of a body?',
+        hint: 'What happens when a body is so huge/extended that acceleration due to gravity g varies from one part to another?',
+        options: [
+          { text: 'CM depends only on mass distribution, whereas CG coincides with CM only when g is uniform across the body.', correct: true },
+          { text: 'CM and CG always coincide even in a strongly non-uniform gravitational field.', correct: false },
+          { text: 'CM depends on the local value of g, whereas CG is independent of gravity.', correct: false },
+          { text: 'Plumb-line suspension can determine CG even in zero-gravity space.', correct: false }
+        ],
+        rationale: 'The Centre of Mass (CM) depends purely on mass distribution and has nothing to do with gravity. Only when the body is small enough that g is uniform across all its particles does Σ r_i × m_i g = 0 simplify to Σ m_i r_i = 0, making CG coincide with CM.'
+      },
+      {
+        topic: 'Question 5 • Knife-Edge Equilibrium Numerical',
+        question: 'A uniform rod of length 100 cm and weight 20 N is balanced horizontally on a single knife-edge placed at the 40 cm mark by suspending a weight W at the 10 cm mark. What is the value of W?',
+        hint: 'The weight of the uniform 100 cm rod (20 N) acts downward at its CG (the 50 cm mark). Take moments about the knife-edge at 40 cm!',
+        options: [
+          { text: '6.67 N', correct: true },
+          { text: '10.0 N', correct: false },
+          { text: '20.0 N', correct: false },
+          { text: '5.00 N', correct: false }
+        ],
+        rationale: 'About the fulcrum at 40 cm: Load W at 10 cm has lever arm d₁ = 40 − 10 = 30 cm (anticlockwise). Rod weight 20 N at CG (50 cm) has lever arm d₂ = 50 − 40 = 10 cm (clockwise). Equating moments: W × 30 = 20 × 10 ⟹ W = 200 / 30 = 6.67 N.'
+      },
+      {
+        topic: 'Question 6 • Leaning Ladder Equilibrium (Example 6.9 Concept)',
+        question: 'In NCERT Example 6.9, a ladder of weight W leans against a smooth (frictionless) vertical wall and rests on a rough horizontal floor. Which statement about the forces acting on the ladder in equilibrium is TRUE?',
+        hint: 'Write the horizontal and vertical translational equilibrium equations: N − W = 0 and F − F₁ = 0.',
+        options: [
+          { text: 'The static friction F from the floor equals the normal reaction F₁ of the smooth wall and points toward the wall.', correct: true },
+          { text: 'The static friction F from the floor points away from the wall.', correct: false },
+          { text: 'The normal reaction N of the floor is greater than the weight W of the ladder.', correct: false },
+          { text: 'The smooth wall exerts an upward frictional force that balances half the weight.', correct: false }
+        ],
+        rationale: 'Since the wall is frictionless, its reaction F₁ is purely horizontal (away from the wall). To prevent the foot of the ladder from sliding away, floor friction F acts horizontally toward the wall with F = F₁, while floor normal reaction N = W.'
+      }
+    ];
+
+    let curQ = 0;
+    let xp = 0;
+    let streak = 0;
+    let bestStreak = 0;
+    let correctCount = 0;
+    let answered = false;
+    let lifeline5050Used = false;
+
+    function renderQuizQuestion() {
+      answered = false;
+      const q = quizQuestions[curQ];
+      document.getElementById('quizTopicTag').textContent = q.topic;
+      document.getElementById('quizQuestionText').textContent = q.question;
+      document.getElementById('quizProgressText').textContent = `${curQ + 1} / ${quizQuestions.length}`;
+      document.getElementById('quizProgressBar').style.width = `${((curQ + 1) / quizQuestions.length) * 100}%`;
+
+      document.getElementById('quizHintBox').classList.add('hidden');
+      document.getElementById('quizFeedbackBox').classList.add('hidden');
+      document.getElementById('quizNextBtn').classList.add('hidden');
+
+      const container = document.getElementById('quizOptionsContainer');
+      container.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `quiz-opt-${idx}`;
+        btn.onclick = () => selectQuizAnswer(idx);
+        btn.className = 'p-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 hover:border-sky-500 dark:hover:border-sky-500 text-left font-semibold text-sm sm:text-base transition flex items-start gap-3';
+        btn.innerHTML = `
+          <span class="w-7 h-7 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-mono font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">${String.fromCharCode(65 + idx)}</span>
+          <span>${opt.text}</span>
+        `;
+        container.appendChild(btn);
+      });
+    }
+
+    function selectQuizAnswer(idx) {
+      if (answered) return;
+      answered = true;
+
+      const q = quizQuestions[curQ];
+      const chosen = q.options[idx];
+      const fbBox = document.getElementById('quizFeedbackBox');
+      const fbTitle = document.getElementById('quizFeedbackTitle');
+      const fbRat = document.getElementById('quizFeedbackRationale');
+
+      q.options.forEach((opt, i) => {
+        const b = document.getElementById(`quiz-opt-${i}`);
+        if (opt.correct) {
+          b.className = 'p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-950 dark:text-emerald-200 text-left font-bold text-sm sm:text-base flex items-start gap-3';
+        } else if (i === idx && !opt.correct) {
+          b.className = 'p-4 rounded-2xl border-2 border-rose-500 bg-rose-50 dark:bg-rose-950/50 text-rose-950 dark:text-rose-200 text-left font-semibold text-sm sm:text-base flex items-start gap-3';
+        } else {
+          b.classList.add('opacity-50');
+        }
+      });
+
+      fbBox.classList.remove('hidden');
+      if (chosen.correct) {
+        correctCount++;
+        streak++;
+        if (streak > bestStreak) bestStreak = streak;
+        xp += 100 + (streak > 1 ? 25 : 0);
+        fbBox.className = 'p-5 rounded-2xl border border-emerald-300 dark:border-emerald-700 bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-950 dark:text-emerald-200 space-y-1.5';
+        fbTitle.textContent = `✅ Spot On! +${100 + (streak > 1 ? 25 : 0)} XP`;
+      } else {
+        streak = 0;
+        fbBox.className = 'p-5 rounded-2xl border border-rose-300 dark:border-rose-700 bg-rose-50/80 dark:bg-rose-950/40 text-rose-950 dark:text-rose-200 space-y-1.5';
+        fbTitle.textContent = `❌ Not Quite — Let's Review the Physics Concept:`;
+      }
+      fbRat.textContent = q.rationale;
+
+      document.getElementById('quizXP').textContent = `${xp} XP`;
+      document.getElementById('quizStreak').textContent = `🔥 ${streak}`;
+
+      const nextBtn = document.getElementById('quizNextBtn');
+      nextBtn.classList.remove('hidden');
+      nextBtn.querySelector('span').textContent = curQ === quizQuestions.length - 1 ? 'View Final Scorecard' : 'Next Question';
+    }
+
+    function useQuizHint() {
+      const hb = document.getElementById('quizHintBox');
+      hb.innerHTML = `<strong>💡 Teacher's Hint:</strong> ${quizQuestions[curQ].hint}`;
+      hb.classList.remove('hidden');
+    }
+
+    function useQuiz5050() {
+      if (lifeline5050Used || answered) return;
+      lifeline5050Used = true;
+      const btn = document.getElementById('btn5050');
+      btn.classList.add('opacity-40', 'cursor-not-allowed');
+      btn.querySelector('span').textContent = '50:50 Used';
+
+      const q = quizQuestions[curQ];
+      let removed = 0;
+      q.options.forEach((opt, i) => {
+        if (!opt.correct && removed < 2) {
+          const b = document.getElementById(`quiz-opt-${i}`);
+          b.disabled = true;
+          b.classList.add('opacity-25', 'line-through', 'pointer-events-none');
+          removed++;
+        }
+      });
+    }
+
+    function nextQuizQuestion() {
+      if (curQ < quizQuestions.length - 1) {
+        curQ++;
+        renderQuizQuestion();
+      } else {
+        showQuizResults();
+      }
+    }
+
+    function showQuizResults() {
+      document.getElementById('quizActiveCard').classList.add('hidden');
+      const res = document.getElementById('quizResultScreen');
+      res.classList.remove('hidden');
+
+      const acc = Math.round((correctCount / quizQuestions.length) * 100);
+      document.getElementById('resAccuracy').textContent = `${acc}%`;
+      document.getElementById('resXP').textContent = `${xp} XP`;
+      document.getElementById('resStreak').textContent = `${bestStreak} 🔥`;
+      document.getElementById('quizFinalSummary').textContent = `You answered ${correctCount} out of ${quizQuestions.length} NCERT Class 11 questions correctly on Principle of Moments and Centre of Gravity!`;
+    }
+
+    function resetQuiz() {
+      curQ = 0;
+      xp = 0;
+      streak = 0;
+      bestStreak = 0;
+      correctCount = 0;
+      lifeline5050Used = false;
+      document.getElementById('quizXP').textContent = '0 XP';
+      document.getElementById('quizStreak').textContent = '🔥 0';
+      const btn50 = document.getElementById('btn5050');
+      btn50.classList.remove('opacity-40', 'cursor-not-allowed');
+      btn50.querySelector('span').textContent = '50:50 Lifeline (1 left)';
+      document.getElementById('quizResultScreen').classList.add('hidden');
+      document.getElementById('quizActiveCard').classList.remove('hidden');
+      renderQuizQuestion();
+    }
+
+    // Initialize all simulations on load
+    window.addEventListener('DOMContentLoaded', () => {
+      updateLeverSim();
+      updateAngleProof();
+      updatePencilSim();
+      updateCGvsCMSim();
+      updateEx68Sim();
+      updateEx69Sim();
+      renderQuizQuestion();
+    });
+  </script>
+</body>
+</html>
